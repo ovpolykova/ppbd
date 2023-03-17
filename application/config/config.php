@@ -35,7 +35,7 @@ $config['base_url'] = 'http://ppbd/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'fffff';
+$config['index_page'] = 'index21.php';
 
 /*
 |--------------------------------------------------------------------------
