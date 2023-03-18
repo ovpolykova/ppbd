@@ -9,7 +9,7 @@
                     <form action="" method="POST">
                         <div class="p-4">
                             <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
+                                <span class="input-group-text bg-primary"><i>
                                         class="bi bi-person-plus-fill text-white"></i></span>
                                 <input type="text" class="form-control" name="login" placeholder="Логин">
                             </div>
