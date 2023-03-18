@@ -13,7 +13,7 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <a type="button" class="btn btn-outline-primary me-2" href="log.php">Авторизация</a>
+            <a type="button" class="btn btn-outline-primary me-2" href="<?=base_url()?>login">Авторизация</a>
             <a type="button" class="btn btn-primary" href="reg.php">Регистрация</a>
         </div>
     </header>

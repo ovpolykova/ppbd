@@ -10,4 +10,12 @@
         $this->load->view('pages/home.php', $data);
 		$this->load->view('templates/footer.php');
 	}
+
+	public function login()
+	{
+		$this->load->view('templates/header.php');
+		$this->load->view('templates/navbar.php');
+        $this->load->view('pages/log');
+		$this->load->view('templates/footer.php');
+	}
 }
