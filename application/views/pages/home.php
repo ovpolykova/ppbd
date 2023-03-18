@@ -1,6 +1,6 @@
 <div class="container">
-<div class="container-fluid vh-100" style="margin-top:100px">
-            <div class="" style="margin-top:200px">
+<div class="container-fluid vh-100" style="margin-top:80px">
+            <div class="" style="margin-top:100">
                 <div class="rounded d-flex justify-content-center">
                     <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
                         <div class="text-center">
