@@ -10,7 +10,7 @@
             <li><a href="#" class="nav-link px-2 link-dark">Список заказов контрагентов</a></li>
             
         </ul>
-        <li><p><b>Добро пожаловать, Администратор! ФИО</b></p></li>
+     <p><b>Добро пожаловать, Администратор! ФИО</b></p>
 
         <div class="col-md-3 text-end">
         <a href="home.php" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">ВЫЙТИ</button></a> 
