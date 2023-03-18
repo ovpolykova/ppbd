@@ -8,7 +8,7 @@
             <li><a href="#" class="nav-link px-2 link-secondary">Справочник контрагентов</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Справочник товаров</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Список заказов контрагентов</a></li>
-            <li><h5>Добро пожаловать, Менеджер! ФИО</h5></li>
+            <li><p><b>Добро пожаловать, Менеджер! ФИО</b></p></li>
         </ul>
 
         <div class="col-md-3 text-end">

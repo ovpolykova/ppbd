@@ -8,7 +8,7 @@
             <li><a href="#" class="nav-link px-2 link-secondary">Справочник</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Справочник товаров</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Список заказов контрагентов</a></li>
-            <li><h5>Добро пожаловать, Администратор! ФИО</h5></li>
+            <li><p><b>Добро пожаловать, Администратор! ФИО</b></p></li>
         </ul>
         
 
