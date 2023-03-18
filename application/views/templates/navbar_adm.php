@@ -8,9 +8,9 @@
             <li><a href="#" class="nav-link px-2 link-secondary">Справочник</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Справочник товаров</a></li>
             <li><a href="#" class="nav-link px-2 link-dark">Список заказов контрагентов</a></li>
-            <li><p><b>Добро пожаловать, Администратор! ФИО</b></p></li>
+            
         </ul>
-        
+        <li><p><b>Добро пожаловать, Администратор! ФИО</b></p></li>
 
         <div class="col-md-3 text-end">
         <a href="home.php" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">ВЫЙТИ</button></a> 
