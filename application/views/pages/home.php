@@ -9,3 +9,28 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Наименование товары</th>
+                <th scope="col">Группа</th>
+                <th scope="col">Единица</th>
+                <th scope="col">Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($tovar as $row) {?>
+            <tr>
+                <th scope="row"><?=$row['ID_tovar']?></th>
+                <td><?=$row['name_t']?></td>
+                <td><?=$row['ID_group']?></td>
+                <td><?=$row['unit']?></td>
+                <td><?=$row['description']?></td>
+            </tr>
+            <?php }?>
+        </tbody>
+    </table>
+</div>
