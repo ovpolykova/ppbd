@@ -30,6 +30,10 @@
         </div>
 </div>
 
+
+
+<!-- Справочник товаров -->
+
 <div class="container">
     <table class="table">
         <thead>
@@ -42,7 +46,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($tovar as $row) {?>
+        <?php foreach ($tovar as $row) {?>
             <tr>
                 <th scope="row"><?=$row['ID_tovar']?></th>
                 <td><?=$row['name_t']?></td>
