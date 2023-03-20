@@ -5,16 +5,23 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+            <li><a href="<?=base_url('main/index')?>" class="nav-link px-2 link-dark">Главная</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-            <a type="button" class="btn btn-outline-primary me-2" href="<?=base_url()?>login">Авторизация</a>
-            <a type="button" class="btn btn-primary" href="reg.php">Регистрация</a>
+            
+            <!-- Если есть сессия, то "Выйти" иначе "Аторизация" и "Регистрация" на навигационной панели -->
+            <?php
+                if (!empty($session)) {?>
+                    <a type="button" class="btn btn-primary" href="<?=base_url('main/exit')?>">Выйти</a>
+                <?php }
+                else
+                {?>
+                    <a type="button" class="btn btn-outline-primary me-2" href="<?=base_url('login/index')?>">Авторизация</a>
+                    <a type="button" class="btn btn-primary" href="<?=base_url('register/index')?>">Регистрация</a>
+                <?php }
+            ?>
+
         </div>
     </header>
 </div>

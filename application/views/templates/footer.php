@@ -14,6 +14,5 @@
                 </ul>
             </footer>
         </div>
-        <script src="<?=asset_url()?>/js/bootstrap.js"></script>
     </body>
 </html>
