@@ -6,7 +6,7 @@
                     <div class="text-center">
                         <h3 class="text-primary">АВТОРИЗАЦИЯ</h3>
                     </div>
-                    <form action="" method="POST">
+                    <form action="<?=base_url('login/log_action')?>" method="POST">
                         <div class="p-4">
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>

@@ -10,7 +10,7 @@
         </ul>
 
         <div class="col-md-3 text-end">
-        <a href="login.php" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">АВТОРИЗАЦИЯ</button></a> 
+        <a href="<?=base_url('login/index')?>" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">АВТОРИЗАЦИЯ</button></a> 
         </div>
     </header>
 </div>
