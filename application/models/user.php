@@ -24,9 +24,9 @@ class User extends CI_Model {
     }
 
     //Пручковский
-    public function add_user()
+    public function add_user($data)
     {
-
+        $this->db->insert('users', $data);
     }
 
     public function upd_user()
@@ -38,6 +38,5 @@ class User extends CI_Model {
     {
 
     }
-
 
 }

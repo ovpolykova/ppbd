@@ -6,6 +6,7 @@
         $this->load->view('templates/header');
         $this->load->view('templates/navbar');
         $this->load->view('pages/login');
+
         $this->load->view('templates/footer');
 	}
 
@@ -33,9 +34,9 @@
 
             switch($role)
             {
-                case 'Администратор': redirect((base_url('main/product'))); 
+                case 'Администратор': redirect((base_url('admin/index'))); 
                 break;
-                case 'Оператор': redirect(base_url('contractor/index'));
+                case 'Оператор': redirect(base_url('operator/index'));
                 break;
                 case 'Контрагент': redirect(base_url(('main/index'))); 
                 break;
