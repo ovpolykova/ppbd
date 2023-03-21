@@ -6,7 +6,7 @@
                     <div class="text-center">
                         <h3 class="text-primary">РЕГИСТРАЦИЯ</h3>
                     </div>
-                    <form action="<?=base_url('register/reg_action')?>" method="post">
+                    <form action="<?=base_url('Register/reg_action')?>" method="post">
                         <div class="p-4">
 
                             <div class="input-group mb-3">

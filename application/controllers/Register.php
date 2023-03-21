@@ -1,16 +1,15 @@
 <?php
-    class Register extends CI_Controller {
+class Register extends CI_Controller {
 
-    //Страница регистрации
-	public function index()
-	{
-		$this->load->view('templates/header.php');
-		$this->load->view('templates/navbar.php');
+    public function index()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar');
         $this->load->view('pages/register');
-		$this->load->view('templates/footer.php');
-	}
 
-    //После нажатия кнопки "Зарегистроваться" на странице регистрации
+        $this->load->view('templates/footer');
+    }
+
     public function reg_action()
     {
         if (!empty($_POST))
@@ -21,10 +20,8 @@
             $password = $this->input->post('password');
             $repassword = $this->input->post('repassword');
 
-            //Проверка, совпадают ли пароли
             if ($password == $repassword)
             {
-                //Записывают данные к переменных
                 $data = array(
                     'fio'      => $fio,
                     'role'     => $role,
@@ -32,11 +29,9 @@
                     'password' => $repassword
                 );
                 
-                //Выбрать нужную модель и активировать
                 $this->load->model('user');
-                $this->user->ins_register($data);
+                $this->user->add_user($data);
 
-                //Быстрая сессия
                 $this->session->set_flashdata('success', 'Регистрация успешно прошла!');
                 redirect(base_url('login/index'));
             }
@@ -48,3 +43,4 @@
     }
 
 }
+?>
