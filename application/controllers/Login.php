@@ -33,7 +33,7 @@
 
             switch($role)
             {
-                case 'Администратор': redirect((base_url('admin/index'))); 
+                case 'Администратор': redirect((base_url('main/product'))); 
                 break;
                 case 'Оператор': redirect(base_url('contractor/index'));
                 break;
