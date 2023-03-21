@@ -18,7 +18,9 @@
                                 <input type="password" class="form-control" name="password" placeholder="Пароль">
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary text-center mt-2" type="submit">ВОЙТИ</button>
+                                <button class="btn btn-primary text-center mt-2" type="submit">
+                                    ВОЙТИ
+                                </button>
                             </div>
                         </div>
                     </form>
