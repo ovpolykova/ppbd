@@ -35,7 +35,7 @@
             {
                 case 'Администратор': redirect((base_url('main/product'))); 
                 break;
-                case 'Оператор': redirect(base_url('operator/index'));
+                case 'Оператор': redirect(base_url('contractor/index'));
                 break;
                 case 'Контрагент': redirect(base_url(('main/index'))); 
                 break;
