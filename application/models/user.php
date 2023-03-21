@@ -6,6 +6,7 @@ class User extends CI_Model {
         $this->load->database();
     }
 
+    //Харламов
     public function sel_user($login, $password)
     {
         $sql = "SELECT * FROM users WHERE login='$login' AND password='$password'";
@@ -22,6 +23,20 @@ class User extends CI_Model {
         
     }
 
+    //Пручковский
+    public function add_user()
+    {
 
+    }
+
+    public function upd_user()
+    {
+
+    }
+
+    public function del_user()
+    {
+
+    }
 
 }
