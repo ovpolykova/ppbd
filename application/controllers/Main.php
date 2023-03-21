@@ -7,7 +7,7 @@
         $this->load->view('templates/navbar');
         $this->load->view('pages/home');
         $this->load->view('templates/footer');
-        //aaa
+        
 	}
 
     public function product()
