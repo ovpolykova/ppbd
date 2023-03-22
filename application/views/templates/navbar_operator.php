@@ -6,8 +6,8 @@
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="<?=base_url('contractor_browse/index')?>" class="nav-link px-2 link-secondary">Справочник контрагентов</a></li>
-            <li><a href="<?=base_url('order/index')?>" class="nav-link px-2 link-dark">Заказ</a></li>
+            <li><a href="<?=base_url('contract/browse_contract')?>" class="nav-link px-2 link-secondary">Справочник контрагентов</a></li>
+            <li><a href="<?=base_url('order/browes_order')?>" class="nav-link px-2 link-dark">Заказ</a></li>
             
         </ul>
 
