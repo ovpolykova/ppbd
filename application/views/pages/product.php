@@ -42,6 +42,8 @@
                 <th scope="col">Единица</th>
                 <th scope="col">Описание</th>
                 <th scope="col">Изображение</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

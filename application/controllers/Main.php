@@ -14,8 +14,8 @@
     //Просмотр товара с фильтром|Кузнецов
     public function product()
     {
-        $this->load->model('product');
-        $data['product'] = $this->product->sel_product();
+        $this->load->model('product_m');
+        $data['product'] = $this->product_m->sel_product();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar');
         $this->load->view('pages/product', $data);
