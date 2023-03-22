@@ -1,18 +1,36 @@
 <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a href="<?=base_url('home/index')?>" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <a href="#" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
             <img class="bi me-2" src="<?=asset_url()?>/img/logo1.png" alt="" width="100" height="80">
-            <p><b>Добро пожаловать, Администратор! ФИО</b></p>
+            <p>Добро пожаловать! Администратор<b><br><?=$session['fio']?></b></p>
         </a>
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="<?=base_url('price/index')?>" class="nav-link px-2 link-dark">Прайс лист</a></li>
-            <li><a href="<?=base_url('product/index')?>" class="nav-link px-2 link-dark">Товары</a></li>
-            <li><a href="<?=base_url('user/index')?>" class="nav-link px-2 link-dark">Пользователь</a></li>
-            <li><a href="<?=base_url('contractor_admin/index')?>" class="nav-link px-2 link-dark">Контрагент</a></li>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Справочники
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Контрагент</a></li>
+                    <li><a class="dropdown-item" href="#">Пользователь</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('price/browse_price')?>">Прайс-лист</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('product/browse_product')?>">Товар-прайс</a></li>
+                </ul>
+            </li>
         </ul>
-
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Списки заказов
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">По контрагентам</a></li>
+                    <li><a class="dropdown-item" href="#">По товарам</a></li>
+                    <li><a class="dropdown-item" href="#">Не выполненных срок</a></li>
+                </ul>
+            </li>
+        </ul>
         <div class="col-md-3 text-end">
-        <a href="<?=base_url('home/index')?>" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">ВЫЙТИ</button></a> 
+        <a href="<?=base_url('main/exit')?>" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">ВЫЙТИ</button></a> 
         </div>
     </header>
 </div>

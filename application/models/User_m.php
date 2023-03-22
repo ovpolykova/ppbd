@@ -50,4 +50,10 @@ class User_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Уничтожение все сессии|Кузнецов !НОВЫЙ!
+    public function kill_session()
+    {
+        $this->session->sess_destroy();
+    }
+
 }

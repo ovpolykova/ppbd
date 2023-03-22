@@ -71,7 +71,28 @@
                 <td><?=$row['unit']?></td>
                 <td><?=$row['description']?></td>
                 <td><?=$row['image']?></td>
-                <td><button class="btn btn-outline-primary">Изменить</button></td>
+                <td>
+                    <!-- Триггер -->
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal1">Изменить</button>
+                    <!-- Модальное окно -->
+                    <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Заголовок модального окна</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
                 <td>
                     <form action="<?=base_url('product/del_product')?>" method="post">
                         <button class="btn btn-outline-danger" name="ID_product" value="<?=$row['ID_product']?>">Удалить</button></td>
@@ -81,6 +102,8 @@
             <?php }?>
             
         </tbody>
+
+
     </table>
 </div>
 
