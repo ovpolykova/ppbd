@@ -72,7 +72,11 @@
                 <td><?=$row['description']?></td>
                 <td><?=$row['image']?></td>
                 <td><button class="btn btn-outline-primary">Изменить</button></td>
-                <td><a class="btn btn-outline-danger" value="<?=$row['ID_product']?>">Удалить</a></td>
+                <td>
+                    <form action="<?=base_url('product/del_product')?>" method="post">
+                        <button class="btn btn-outline-danger" name="ID_product" value="<?=$row['ID_product']?>">Удалить</button></td>
+                    </form>
+                </td>
             </tr>
             <?php }?>
             
