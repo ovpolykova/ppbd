@@ -8,7 +8,6 @@
         $this->load->view('templates/navbar');
         $this->load->view('pages/home');
         $this->load->view('templates/footer');
-        
 	}
 
     //Просмотр товара с фильтром|Кузнецов
