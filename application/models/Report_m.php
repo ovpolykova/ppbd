@@ -6,24 +6,25 @@ class Report extends CI_Model {
         $this->load->database();
     }
 
-    //Харламов
-    public function sel_contractor_delivery()
+    //Выбрать заказы, подготовленных к доставке|Харламов
+    public function sel_order_delivery()
     {
         
     }
 
-    //Пручковский
-    public function sel_rep_order_contractor()
+    //Выбрать заказ по контрагентам за период|Пручковский
+    public function sel_rep_order_contract()
     {
         
     }
 
+    //Выбрать заказ по товарам за период|Пручковский
     public function sel_rep_order_product()
     {
         
     }
 
-    //Кузнецов
+    //Выбрать заказ, не выполненных в срок за период|Кузнецов
     public function sel_rep_order_fall()
     {
         
