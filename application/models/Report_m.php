@@ -7,7 +7,7 @@ class Report extends CI_Model {
     }
 
     //Харламов
-    public function sel_contractor_delivery()
+    public function sel_contract_delivery()
     {
         
     }
