@@ -23,8 +23,8 @@
 
     public function rep_delivery()
 	{
-        $this->load->model('order_m');
-        $data['browesorder'] = $this->order_m->sel_order_delivery();
+        $this->load->model('report_m');
+        $data['otchter'] = $this->report_m->sel_order_delivery();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_operator');
         $this->load->view('pages/order_delivery', $data);
