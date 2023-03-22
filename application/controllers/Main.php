@@ -1,6 +1,7 @@
 <?php
 	class Main extends CI_Controller {
-
+    
+    //Главная страница
 	public function index()
 	{
         $this->load->view('templates/header');
@@ -10,6 +11,7 @@
         
 	}
 
+    //Просмотр товара с фильтром
     public function product()
     {
         $this->load->model('product');
@@ -18,6 +20,12 @@
         $this->load->view('templates/navbar');
         $this->load->view('pages/product', $data);
         $this->load->view('templates/footer');
+    }
+
+    //Завершение сессии
+    public function exit()
+    {
+        
     }
 }
 ?>
