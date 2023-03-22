@@ -15,6 +15,7 @@
     {
         $this->load->model('product_m');
         $data['product'] = $this->product_m->sel_product();
+        $data['group']   = $this->product_m->sel_group();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar');
         $this->load->view('pages/product', $data);
