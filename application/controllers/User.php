@@ -6,7 +6,7 @@
         $this->load->model('user_m');
         $data['users'] = $this->user_m->sel_user_table();
         $this->load->view('templates/header');
-        $this->load->view('templates/navbar');
+        $this->load->view('templates/navbar_admin');
         $this->load->view('pages/user', $data);
         $this->load->view('templates/footer');
     }

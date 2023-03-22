@@ -12,16 +12,16 @@
     <div class="container-fluid" style="margin-top:20px">
         <div class="" style="margin-top:100">
             <div class="rounded d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalregister1">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdd1">
                 Добавить пользователя
                 </button>
 
                 <!-- Модальное окно -->
-                <div class="modal fade" id="modalregister1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalregisterLabel1" aria-hidden="true">
+                <div class="modal fade" id="modalAdd1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="modalregisterLabel1">Добавление пользователя</h1>
+                                <h1 class="modal-title fs-5" id="modalAddLabel1">Добавление пользователя</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                             </div>
                             <form action="<?=base_url('User/add_action')?>" method="post">
@@ -92,17 +92,17 @@
                     <td><?=$row['password']?></td>
                     <td>
 
-                    <a href="<?=base_url('User/upd_action')?>?ID_user='.$row['ID_user'].'">
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalregister2">
+                    <!-- <a href="<?=base_url('User/upd_action')?>?ID_user='.$row['ID_user'].'"> -->
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAdd2">
                     Изменить
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="modalregister2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalregisterLabel2" aria-hidden="true">
+                    <div class="modal fade" id="modalAdd2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalregisterLabel2">Редактирование пользователя</h1>
+                                    <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                                 </div>
                                 <form action="<?=base_url('User/upd_action')?>" method="post">
@@ -141,7 +141,7 @@
                     </div>
 
                     </td>
-                    <td><a href="<?=base_url('User/upd_action')?>?ID_user='.$row['ID_user'].'">
+                    <td><!--<a href="<?=base_url('User/del_action')?>?ID_user='.$row['ID_user'].'"> -->
                     <button class="btn btn-outline-danger">Удалить</button></td>
                 </tr>
                 <?php }?>
