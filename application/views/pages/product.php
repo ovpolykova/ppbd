@@ -1,3 +1,4 @@
+<!-- Страница товара (для администратора)|Кузнецов -->
 <div class="container">
     <div class="row">
         <div class="col-8">

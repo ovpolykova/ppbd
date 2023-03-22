@@ -1,7 +1,7 @@
 <?php
 	class Main extends CI_Controller {
     
-    //Главная страница
+    //Главная страница|Кузнецов
 	public function index()
 	{
         $this->load->view('templates/header');
@@ -11,7 +11,7 @@
         
 	}
 
-    //Просмотр товара с фильтром
+    //Просмотр товара с фильтром|Кузнецов
     public function product()
     {
         $this->load->model('product');
@@ -22,7 +22,7 @@
         $this->load->view('templates/footer');
     }
 
-    //Завершение сессии
+    //Завершение сессии|Кузнецов
     public function exit()
     {
         
