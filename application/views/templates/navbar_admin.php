@@ -7,7 +7,8 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="<?=base_url('price/index')?>" class="nav-link px-2 link-dark">Прайс лист</a></li>
             <li><a href="<?=base_url('product/index')?>" class="nav-link px-2 link-dark">Товары</a></li>
-            
+            <li><a href="<?=base_url('user/index')?>" class="nav-link px-2 link-dark">Пользователь</a></li>
+            <li><a href="<?=base_url('contractor_admin/index')?>" class="nav-link px-2 link-dark">Контрагент</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
