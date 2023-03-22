@@ -33,11 +33,11 @@
                 $this->load->model('user_m');
                 $this->user_m->add_user($data);
 
-                redirect(base_url('register/index'));
+                redirect(base_url('user/index'));
             }
             else
             {
-                redirect(base_url('register/index'));
+                redirect(base_url('user/index'));
             }
         }
     }
@@ -63,7 +63,7 @@
             $this->load->model('user_m');
             $this->user_m->upd_user($data);
 
-            redirect(base_url('register/index'));
+            redirect(base_url('user/index'));
         }
     }
 

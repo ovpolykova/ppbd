@@ -14,8 +14,8 @@
         $login = $this->input->post('login');
         $password = $this->input->post('password');
 
-        $this->load->model('User_m');
-        $result = $this->User_m->sel_user($login, $password);
+        $this->load->model('user_m');
+        $result = $this->user_m->sel_user($login, $password);
 
         if($result != false)
         {
