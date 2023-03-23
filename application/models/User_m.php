@@ -23,26 +23,30 @@ class User_m extends CI_Model {
         
     }
 
-    //Пручковский
+    //Добавить пользователя|Пручковский
     public function add_user($data)
     {
         $this->db->insert('users', $data);
     }
 
-    public function upd_user($data)
+    //Изменить пользователя|Пручковский
+    public function upd_user($fio, $role, $login, $password, $id)
     {
-        $this->db->update('users', $data);
-
-        // $sql = "UPDATE users SET fio='$fio', role='$role', login='$login', password='$password' WHERE ID_user=$ID_user";
-        // $query = $this->db->query($sql);
-        // return $query->result_array();
+        $this->db->set('fio', $fio)
+                 ->set('role', $role)
+                 ->set('login', $login)
+                 ->set('password', $password)
+                 ->where('ID_user', $id)
+                 ->update('users');
     }
 
+    //Удалить пользователя|Пручковский
     public function del_user($data)
     {
         $this->db->delete('users', $data);
     }
 
+    //ВЫбрать пользователя|Пручковский
     public function sel_user_table()
     {
         $sql = "SELECT * FROM users";

@@ -18,15 +18,19 @@ class Report_m extends CI_Model {
     }
 
     //Выбрать заказ по контрагентам за период|Пручковский
-    public function sel_rep_order_contract()
+    public function sel_rep_order_contract($date1, $date2)
     {
-        
+        $sql = "";
+        $query = $this->db->query($sql);
+        return $query->result_array(); 
     }
 
     //Выбрать заказ по товарам за период|Пручковский
-    public function sel_rep_order_product()
+    public function sel_rep_order_product($date1, $date2)
     {
-        
+        $sql = "";
+        $query = $this->db->query($sql);
+        return $query->result_array(); 
     }
 
     //Выбрать заказ, не выполненных в срок за период|Кузнецов
