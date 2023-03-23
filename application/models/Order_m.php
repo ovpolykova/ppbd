@@ -23,5 +23,3 @@ class Order_m extends CI_Model {
                     ->update('order');
         }
 }
-
-
