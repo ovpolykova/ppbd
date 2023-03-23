@@ -21,9 +21,7 @@ class Order_m extends CI_Model {
             $this->db->set('status', 'storder');
             $this->db->where('ID_order', 'id');
             $this->db->update('order');
-           
-            $sql = "UPDATE `order` SET status = 'Отправка' WHERE ID_order = ...";
-           $query = $this->db->query($sql);
+                   
            return $query->result_array(); 
         }
 }
