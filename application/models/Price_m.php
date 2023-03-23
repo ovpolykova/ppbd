@@ -36,7 +36,14 @@ class Price_m extends CI_Model {
         $this->db->delete('price_list', $data);
     }
 
-    //Выбрать тип товара|Кузнецов !НОВЫЙ!
+    //Выбрать Товар|Кузнецов !НОВЫЙ!
+    public function sel_product()
+    {
+        $query = $this->db->get('product');
+        return $query->result_array();
+    }
+
+    //Выбрать тип прайс-листа|Кузнецов !НОВЫЙ!
     public function sel_type_t()
     {
         $query = $this->db->get('type_t');

@@ -11,8 +11,7 @@
         $data['price_list'] = $this->price_m->sel_price();
         $data['type_t'] = $this->price_m->sel_type_t();
         $data['valuta'] = $this->price_m->sel_valuta();
-        $this->load->model('product_m');
-        $data['product'] = $this->product_m->sel_product();
+        $data['product'] = $this->price_m->sel_product();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);
         $this->load->view('pages/price', $data);

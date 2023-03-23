@@ -5,9 +5,15 @@
             <h1 class="display-6 text-success text-center"><?=$this->session->flashdata('success_add_price')?></h1>
             <form action="<?=base_url('price/add_price')?>" method="post">
 
-                <div class="row mb-3">
-                    <div class="col-md-5">
-                        <label for="ID_product" class="form-label">Товар</label>
+                <div class="row">
+                    <div class="col-6">Товар</div>
+                    <div class="col-2">Тип прайс-листа</div>
+                    <div class="col-2">Валюта</div>
+                    <div class="col-2">Цена</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="ID_product" class="form-label"></label>
                         <select class="form-select" name="ID_product">
 
                             <?php foreach ($product as $row) {?>
@@ -16,30 +22,38 @@
 
                         </select>
                     </div>
-                    <div class="col-md-3">
-                        <label for="ID_type_t" class="form-label">Тип товара</label>
-                        <select class="form-select" name="ID_type_t">
 
-                            <?php foreach ($type_t as $row) {?>
-                            <option value="<?=$row['ID_type_t']?>"><?=$row['type_t']?></option>
-                            <?php }?>
+                    <div class="col-md-6">
+                    <?php $a = 1?>
+                    <?php foreach ($type_t as $row) { ?>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <fieldset disabled>
+                                    <input type="text" name="" value="<?=$a++?>">
+                                    <label for="price" class="form-label"></label>
+                                    <input type="text" class="form-control" name="type_t" value="<?=$row['type_t']?>" placeholder="<?=$row['type_t']?>">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="" value="<?=$a++?>">
+                                <label for="ID_valuta" class="form-label"></label>
+                                <select class="form-select" name="ID_valuta">
 
-                        </select>
+                                    <?php foreach ($valuta as $row) {?>
+                                    <option value="<?=$row['ID_valuta']?>"><?=$row['valuta']?></option>
+                                    <?php }?>
+
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="" value="<?=$a++?>">
+                                <label for="price" class="form-label"></label>
+                                <input type="number" class="form-control" name="price" min="0" step="0.01">      
+                            </div>
+                        </div>
+                        <?php }?>
                     </div>
-                    <div class="col-md-2">
-                        <label for="ID_valuta" class="form-label">Валюта</label>
-                        <select class="form-select" name="ID_valuta">
-
-                            <?php foreach ($valuta as $row) {?>
-                            <option value="<?=$row['ID_valuta']?>"><?=$row['valuta']?></option>
-                            <?php }?>
-
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="price" class="form-label">Цена</label>
-                        <input type="number" class="form-control" name="price" min="0" step="0.01">      
-                    </div>
+                    
                 </div>
 
                 <button type="submit" class="btn btn-primary">Добавить</button>
@@ -128,7 +142,8 @@
                                                 <label for="price" class="form-label">Цена</label>
                                                 <input type="number" class="form-control" name="price" min="0" step="0.01" value="<?=$row['price']?>">      
                                             </div>
-                                        </div>    
+                                            
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
