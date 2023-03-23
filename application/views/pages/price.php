@@ -25,19 +25,17 @@
 
                     <div class="col-md-6">
                     <?php $a = 1?>
+                    
                     <?php foreach ($type_t as $row) { ?>
                         <div class="row">
                             <div class="col-md-4">
-                                <fieldset disabled>
-                                    <input type="text" name="" value="<?=$a++?>">
-                                    <label for="price" class="form-label"></label>
-                                    <input type="text" class="form-control" name="type_t" value="<?=$row['type_t']?>" placeholder="<?=$row['type_t']?>">
-                                </fieldset>
+                                <label for="" class="form-label"></label>
+                                <input type="hidden" name="<?="value".$a++?>" value="<?=$row['ID_type_t']?>">
+                                <input type="text" class="form-control" placeholder="<?=$row['type_t']?>" readonly>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" name="" value="<?=$a++?>">
-                                <label for="ID_valuta" class="form-label"></label>
-                                <select class="form-select" name="ID_valuta">
+                                <label for="" class="form-label"></label>
+                                <select class="form-select" name="<?="value".$a++?>">
 
                                     <?php foreach ($valuta as $row) {?>
                                     <option value="<?=$row['ID_valuta']?>"><?=$row['valuta']?></option>
@@ -46,16 +44,15 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <input type="text" name="" value="<?=$a++?>">
-                                <label for="price" class="form-label"></label>
-                                <input type="number" class="form-control" name="price" min="0" step="0.01">      
+                                <label for="" class="form-label"></label>
+                                <input type="number" class="form-control" name="<?="value".$a++?>" min="0" step="0.01">      
                             </div>
                         </div>
                         <?php }?>
                     </div>
                     
                 </div>
-
+                
                 <button type="submit" class="btn btn-primary">Добавить</button>
             </form>
 
@@ -63,12 +60,39 @@
         <div class="col-4"></div>
     </div>
     <hr>
+        <div class="p-3 mb-2 bg-info text-dark">
+            <h1 class="display-6">Поиск</h1>
+            <form action="<?=base_url('price/browse_price_filter')?>" method="post">
+                <div class="row align-items-end">
+                    <div class="col-md-3">
+                        <label for="name_product" class="form-label">Товар</label>
+                        <input type="text" class="form-control" name="name_product">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="ID_type_t" class="form-label">Тип прайс-листа</label>
+                        <select class="form-select" name="ID_type_t">
+
+                            <option value="all">Все</option>
+                            <?php foreach ($type_t as $row) {?>
+                            <option value="<?=$row['ID_type_t']?>"><?=$row['type_t']?></option>
+                            <?php }?>
+
+                        </select>
+                    </div>
+                    <div class="col-md-3 align-text-bottom">
+                        <button class="btn btn-primary">Поиск</button>
+                        <a href="<?=base_url('price/browse_price')?>" class="btn btn-danger">Очистить</a>
+                    </div>
+                </div>                             
+            </form>
+        </div>
+    <hr>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">№</th>
                 <th scope="col">Товар</th>
-                <th scope="col">Тип товара</th>
+                <th scope="col">Тип прайс-листа</th>
                 <th scope="col">Валюта</th>
                 <th scope="col">Цена</th>
                 <th scope="col"></th>
@@ -115,7 +139,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-4">
-                                                <label for="ID_type_t" class="form-label">Тип товара</label>
+                                                <label for="ID_type_t" class="form-label">Тип прайс-листа</label>
                                                 <select class="form-select" name="ID_type_t">
                                                     <option value="<?=$row['ID_type_t']?>" selected><?=$row['type_t']?></option>
 

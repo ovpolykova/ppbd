@@ -14,6 +14,7 @@ class Price_m extends CI_Model {
                           ->where('p.ID_product=product.ID_product')
                           ->where('p.ID_type_t=t.ID_type_t')
                           ->where('p.ID_valuta=v.ID_valuta')
+                          ->order_by('ID_list')
                           ->get();
         return $query->result_array();
     }
@@ -55,5 +56,21 @@ class Price_m extends CI_Model {
     {
         $query = $this->db->get('valuta');
         return $query->result_array();
+    }
+
+    //Выбрать прайс-лист c фильтром|Кузнецов
+    public function sel_price_filter($name_product, $ID_type_t)
+    {
+        $query = $this->db->select('*')
+                          ->from('price_list p, product, type_t t, valuta v')
+                          ->where('p.ID_product=product.ID_product')
+                          ->where('p.ID_type_t=t.ID_type_t')
+                          ->where('p.ID_valuta=v.ID_valuta')
+                          ->where($ID_type_t)
+                          ->like('name_product', $name_product)
+                          ->order_by('ID_list')
+                          ->get();
+        return $query->result_array();
+        //var_dump($this->db->last_query());
     }
 }
