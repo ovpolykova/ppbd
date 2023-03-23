@@ -24,9 +24,11 @@ class Product_m extends CI_Model {
     }
 
     //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
-    public function upd_price_product()
+    public function upd_price_product($price, $id)
     {
-        
+        $this->db->set('price', $price)
+                 ->where('ID_list', $id)
+                 ->update('price_list');
     }
 
     //Удаление товара с привязкой к определенному прайс-листу|Кузнецов

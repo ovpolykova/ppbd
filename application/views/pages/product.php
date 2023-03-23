@@ -78,7 +78,7 @@
                     <div class="modal fade" id="<?=$row['ID_list']?>" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <form action="<?=base_url('product/upd_price_product')?>">
+                                <form action="<?=base_url('product/upd_price_product')?>" method="post">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Изменить цену товара к прайс-листу №<?=$row['ID_list']?></h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
