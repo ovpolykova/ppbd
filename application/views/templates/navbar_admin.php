@@ -23,8 +23,8 @@
                     Списки заказов
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">По контрагентам</a></li>
-                    <li><a class="dropdown-item" href="#">По товарам</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('report_order_contract/index')?>">По контрагентам</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('report_order_product/index')?>">По товарам</a></li>
                     <li><a class="dropdown-item" href="#">Не выполненных срок</a></li>
                 </ul>
             </li>
