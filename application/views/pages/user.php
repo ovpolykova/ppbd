@@ -92,41 +92,46 @@
                     <td><?=$row['password']?></td>
                     <td>
 
-                    <!-- <a href="<?=base_url('User/upd_action')?>?ID_user='.$row['ID_user'].'"> -->
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAdd2">
+                    <!-- Триггер -->
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_user']?>">
                     Изменить
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="modalAdd2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_user']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
+                                <form action="<?=base_url('user/upd_action')?>" method="post">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя</h1>
+                                    <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя №<?=$row['ID_user']?></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                                 </div>
-                                <form action="<?=base_url('User/upd_action')?>" method="post">
                                 <div class="modal-body">
                                     <div class="p-4">
 
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                            <input type="text" class="form-control" name="fio" placeholder="ФИО" required>
+                                            <input type="text" class="form-control" name="ID_user" placeholder="ФИО" required value="<?=$row['ID_user']?>">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                            <input type="text" class="form-control" name="fio" placeholder="ФИО" required value="<?=$row['fio']?>">
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
                                             <select class="form-select" name="role">
+                                                <option value="Администратор">Администратор</option>
                                                 <option value="Оператор">Оператор</option>
                                                 <option value="Контрагент">Контрагент</option>
                                             </select>
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
-                                            <input type="text" class="form-control" name="login" placeholder="Логин" required>
+                                            <input type="text" class="form-control" name="login" placeholder="Логин" required value="<?=$row['login']?>">
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
-                                            <input type="password" class="form-control" name="password" placeholder="Пароль" required>
+                                            <input type="text" class="form-control" name="password" placeholder="Пароль" required value="<?=$row['password']?>">
                                         </div>
 
                                     </div>

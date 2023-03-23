@@ -46,7 +46,17 @@
     //Изменение контрагента|Пручковский
     public function upd_contract()
     {
+        $contractor = $this->input->post('contractor');
+        $ID_type_c  = $this->input->post('ID_type_c');
+        $address_c  = $this->input->post('address_c');
+        $date_c     = $this->input->post('date_c');
+        $inn        = $this->input->post('inn');
+        $kpp        = $this->input->post('kpp');
+        $id         = $this->input->post('ID_contract');
+        $this->load->model('contract_m');
+        $this->contract_m->upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id);
 
+        redirect('contract_admin/index');
     }
 
     //Удаление контрагента|Пручковский

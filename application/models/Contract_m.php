@@ -22,9 +22,16 @@ class Contract_m extends CI_Model {
     }
 
     //Изменить контрагента|Пручковский
-    public function upd_contract($data)
+    public function upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id)
     {
-        $this->db->update('contract', $data);
+        $this->db->set('contractor', $contractor)
+                 ->set('ID_type_c', $ID_type_c)
+                 ->set('address_c', $address_c)
+                 ->set('date_c', $date_c)
+                 ->set('inn', $inn)
+                 ->set('kpp', $kpp)
+                 ->where('ID_contract', $id)
+                 ->update('contract');
     }
 
     //Удалить контрагента|Пручковский

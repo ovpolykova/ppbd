@@ -47,29 +47,18 @@
         }
     }
 
-    //Добавление пользователя|Пручковский
+    //Изменение пользователя|Пручковский
     public function upd_action()
     {
-        if (!empty($_POST))
-        {
-            $ID_user = $this->input->post('ID_user');
-            $fio = $this->input->post('fio');
-            $role = $this->input->post('role');
-            $login = $this->input->post('login');
-            $password = $this->input->post('password');
+        $fio      = $this->input->post('fio');
+        $role     = $this->input->post('role');
+        $login    = $this->input->post('login');
+        $password = $this->input->post('password');
+        $id       = $this->input->post('ID_user');
+        $this->load->model('user_m');
+        $this->user_m->upd_user($fio, $role, $login, $password, $id);
 
-            $data = array(
-                'ID_user'  => $ID_user,
-                'fio'      => $fio,
-                'role'     => $role,
-                'login'    => $login,
-                'password' => $password
-            );
-            
-            $this->load->model('user_m');
-            $this->user_m->upd_user($data);
-            redirect('user/index');
-        }
+        redirect('user/index');
     }
     
     //Удаление пользователя|Пручковский

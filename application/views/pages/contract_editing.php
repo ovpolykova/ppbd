@@ -100,25 +100,30 @@
                     <td><?=$row['kpp']?></td>
                     <td>
 
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAdd2">
+                    <!-- Триггер -->
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_contract']?>">
                     Изменить
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="modalAdd2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_contract']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
+                                <form action="<?=base_url('contract_admin/upd_contract')?>" method="post">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя</h1>
+                                    <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя №<?=$row['ID_contract']?></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                                 </div>
-                                <form action="<?=base_url('contract_admin/upd_contract')?>" method="post">
                                 <div class="modal-body">
                                     <div class="p-4">
 
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                        <input type="text" class="form-control" name="contractor" placeholder="Наименование контрагента" required>
+                                        <input type="text" class="form-control" name="ID_contract" required value="<?=$row['ID_contract']?>">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="contractor" placeholder="Наименование контрагента" required value="<?=$row['contractor']?>">
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
@@ -129,19 +134,19 @@
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                        <input type="text" class="form-control" name="address_c" placeholder="Юр. адрес" required>
+                                        <input type="text" class="form-control" name="address_c" placeholder="Юр. адрес" required value="<?=$row['address_c']?>">
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                        <input type="date" class="form-control" name="date_c" required>
+                                        <input type="date" class="form-control" name="date_c" required value="<?=$row['date_c']?>">
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                        <input type="text" class="form-control" name="inn" placeholder="ИНН" required>
+                                        <input type="text" class="form-control" name="inn" placeholder="ИНН" required value="<?=$row['inn']?>">
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                        <input type="text" class="form-control" name="kpp" placeholder="КПП" required>
+                                        <input type="text" class="form-control" name="kpp" placeholder="КПП" required value="<?=$row['kpp']?>">
                                     </div>
 
                                     </div>
