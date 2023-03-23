@@ -13,12 +13,13 @@
 
     public function upd_order()
 	{
+        $status = $this->input->post('storder');
+        $id     = $this->input->post('ID_order');
         $this->load->model('order_m');
-        $data['browesorder'] = $this->order_m->upd_order_status();
-        $this->load->view('templates/header');
-        $this->load->view('templates/navbar_operator');
-        $this->load->view('pages/order_delivery', $data);
-        $this->load->view('templates/footer');
+        $this->order_m->upd_order_status($status, $id);
+        $data['browesorder'] = $this->order_m->upd_order_status($status, $id);
+        redirect('order/browes_order');
+      
 	}
 
     public function rep_delivery()

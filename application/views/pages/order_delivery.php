@@ -48,10 +48,11 @@
       </div>
       <div class="modal-body">
         
-      <form class="row g-3" action="<?=base_url('order_delivery/upd_order')?>" method="POST">
+<form class="row g-3" action="<?=base_url('order/upd_order')?>" method="POST">
   <div class="col-12">
+    <input type="hidden" name="ID_order" value="<?=$row['ID_order']?>">
     <label for="validationDefault04" class="form-label">Статус</label>
-    <select class="form-select" id="validationDefault04" name="storder" required>
+    <select class="form-select" id="validationDefault04" name="storder" required value="<?=$row['status']?>">
       <option value="Заказан">Заказан</option>
       <option value="Подготовен к доставку">Подготовен к доставку</option>
       <option value="Отправка">Отправка</option>
