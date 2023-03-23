@@ -41,7 +41,17 @@
     //Изменение прайс-листа|Кузнецов
     public function upd_price()
 	{
-        
+        $data = array(
+            'ID_product' => $this->input->post('ID_product'),
+            'ID_type_t'  => $this->input->post('ID_type_t'),
+            'ID_valuta'  => $this->input->post('ID_valuta'),
+            'price'      => $this->input->post('price')
+        );
+        $id = "ID_list=".$this->input->post('ID_list');
+        $this->load->model('price_m');
+        $this->price_m->upd_price($data, $id);
+
+        redirect('price/browse_price');
 	}
 
     //Удаление прайс-листа|Кузнецов

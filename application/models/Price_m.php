@@ -25,9 +25,9 @@ class Price_m extends CI_Model {
     }
 
     //Изменить прайс-лист|Кузнецов
-    public function upd_price()
+    public function upd_price($data, $id)
     {
-        
+        $this->db->update('price_list', $data, $id);
     }
 
     //Удалить прайс-лист|Кузнецов
