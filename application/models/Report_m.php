@@ -1,5 +1,5 @@
 <?php
-class Report extends CI_Model {
+class Report_m extends CI_Model {
 
     public function __construct()
     {

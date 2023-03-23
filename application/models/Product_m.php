@@ -9,8 +9,7 @@ class Product_m extends CI_Model {
     //Выбрать товар|Кузнецов
     public function sel_product()
     {
-        $sql = "SELECT * FROM product";
-        $query = $this->db->query($sql);
+        $query = $this->db->get('product');
         return $query->result_array();
     }
 
