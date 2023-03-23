@@ -22,7 +22,7 @@ class Order_m extends CI_Model {
             $this->db->where('ID_order', 'id');
             $this->db->update('order');
                    
-           return $query->result_array(); 
+       
         }
 }
 
