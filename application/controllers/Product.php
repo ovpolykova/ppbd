@@ -39,7 +39,12 @@
     //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
     public function upd_price_product()
 	{
-        
+        $price = $this->input->post('price');
+        $id    = $this->input->post('ID_list');
+        $this->load->model('product_m');
+        $this->product_m->upd_price_product($price, $id);
+
+        redirect('product/browse_product');
 	}
 
     //Удаление товара с привязкой к определенному прайс-листу|Кузнецов
