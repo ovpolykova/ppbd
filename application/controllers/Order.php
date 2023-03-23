@@ -27,7 +27,7 @@
         $data['otchter'] = $this->report_m->sel_order_delivery();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_operator');
-        $this->load->view('pages/order_delivery', $data);
+        $this->load->view('pages/order_del_otch', $data);
         $this->load->view('templates/footer');
 	}
 
