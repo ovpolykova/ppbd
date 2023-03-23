@@ -1,16 +1,21 @@
 <?php
     class User extends CI_Controller {
 
+    //Просмотр пользователей|Пручковский
     public function index()
     {
+        //Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
         $this->load->model('user_m');
         $data['users'] = $this->user_m->sel_user_table();
         $this->load->view('templates/header');
-        $this->load->view('templates/navbar_admin');
+        $this->load->view('templates/navbar_admin', $data);
         $this->load->view('pages/user', $data);
         $this->load->view('templates/footer');
     }
 
+    //Добавление пользователя|Пручковский
     public function add_action()
     {
         if (!empty($_POST))
@@ -42,6 +47,7 @@
         }
     }
 
+    //Добавление пользователя|Пручковский
     public function upd_action()
     {
         if (!empty($_POST))
@@ -62,14 +68,19 @@
             
             $this->load->model('user_m');
             $this->user_m->upd_user($data);
-
-            redirect(base_url('user/index'));
+            redirect('user/index');
         }
     }
-
+    
+    //Удаление пользователя|Пручковский
     public function del_action()
     {
-        
+        $data = array(
+            'ID_user' => $this->input->post('ID_user')
+        );
+        $this->load->model('user_m');
+        $this->user_m->del_user($data);
+        redirect('user/index');
     }
 
 }

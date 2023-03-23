@@ -141,8 +141,10 @@
                     </div>
 
                     </td>
-                    <td><!--<a href="<?=base_url('User/del_action')?>?ID_user='.$row['ID_user'].'"> -->
-                    <button class="btn btn-outline-danger">Удалить</button></td>
+                    <td>
+                    <form action="<?=base_url('user/del_action')?>" method="post">
+                        <button class="btn btn-outline-danger" name="ID_user" value="<?=$row['ID_user']?>">Удалить</button></td>
+                    </form>
                 </tr>
                 <?php }?>
             </tbody>

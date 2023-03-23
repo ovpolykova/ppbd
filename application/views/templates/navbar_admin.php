@@ -10,8 +10,8 @@
                     Справочники
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Контрагент</a></li>
-                    <li><a class="dropdown-item" href="#">Пользователь</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('contract_admin/index')?>">Контрагент</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('user/index')?>">Пользователь</a></li>
                     <li><a class="dropdown-item" href="<?=base_url('price/browse_price')?>">Прайс-лист</a></li>
                     <li><a class="dropdown-item" href="<?=base_url('product/browse_product')?>">Товар-прайс</a></li>
                 </ul>

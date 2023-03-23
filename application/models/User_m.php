@@ -23,12 +23,13 @@ class User_m extends CI_Model {
         
     }
 
-    //Пручковский
+    //Добавить пользователя|Пручковский
     public function add_user($data)
     {
         $this->db->insert('users', $data);
     }
 
+    //Изменить пользователя|Пручковский
     public function upd_user($data)
     {
         $this->db->update('users', $data);
@@ -38,11 +39,13 @@ class User_m extends CI_Model {
         // return $query->result_array();
     }
 
+    //Удалить пользователя|Пручковский
     public function del_user($data)
     {
         $this->db->delete('users', $data);
     }
 
+    //ВЫбрать пользователя|Пручковский
     public function sel_user_table()
     {
         $sql = "SELECT * FROM users";
