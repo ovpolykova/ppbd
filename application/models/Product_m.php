@@ -6,35 +6,33 @@ class Product_m extends CI_Model {
         $this->load->database();
     }
 
-    //Выбрать товар|Кузнецов
+    //Просмотр товаров с привязкой к определенному прайс-листу|Кузнецов
     public function sel_product()
     {
-        $query = $this->db->get('product');
+        $query = $this->db->select ('*')
+                          ->from ('price_list p, product, valuta v')
+                          ->where('p.ID_product=product.ID_product')
+                          ->where('p.ID_valuta=v.ID_valuta')
+                          ->get();
         return $query->result_array();
     }
 
-    //Добавить товар|Кузнецов
+    //Добавление товара с привязкой к определенному прайс-листу|Кузнецов
     public function add_product($data)
     {
-        $this->db->insert('product', $data);
+        //$this->db->insert('product', $data);
     }
 
-    //Изменить товар|Кузнецов
-    public function upd_product()
+    //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
+    public function upd_price_product()
     {
         
     }
 
-    //Удалить товар|Кузнецов
+    //Удаление товара с привязкой к определенному прайс-листу|Кузнецов
     public function del_product($data)
     {
-        $this->db->delete('product', $data);
-    }
-
-    //Изменить цену товара|Кузнецов
-    public function upd_product_price()
-    {
-        
+        //$this->db->delete('product', $data);
     }
 
     //Выбрать группу|Кузнецов !НОВЫЙ!

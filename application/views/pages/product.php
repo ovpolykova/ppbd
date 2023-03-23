@@ -51,11 +51,11 @@
         <thead>
             <tr>
                 <th scope="col">№</th>
-                <th scope="col">Название продуктов</th>
-                <th scope="col">Группа</th>
+                <th scope="col">Товар</th>
+                <th scope="col">№Прайс-лист</th>
                 <th scope="col">Единица</th>
-                <th scope="col">Описание</th>
-                <th scope="col">Изображение</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Валюта</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -67,28 +67,40 @@
             <tr>
                 <th scope="row"><?=$row['ID_product']?></th>
                 <td><?=$row['name_product']?></td>
-                <td><?=$row['ID_group']?></td>
+                <td><?=$row['ID_list']?></td>
                 <td><?=$row['unit']?></td>
-                <td><?=$row['description']?></td>
-                <td><?=$row['image']?></td>
+                <td><?=$row['price']?></td>
+                <td><?=$row['valuta']?></td>
                 <td>
                     <!-- Триггер -->
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal1">Изменить</button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_list']?>">Изменить цену</button>
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_list']?>" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Заголовок модального окна</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
-                            </div>
+                                <form action="<?=base_url('product/upd_price_product')?>">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Изменить цену товара к прайс-листу №<?=$row['ID_list']?></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="ID_list" value="<?=$row['ID_list']?>">
+                                        <input type="hidden" name="ID_product" value="<?=$row['ID_product']?>">
+                                        <input type="hidden" name="ID_type_t" value="<?=$row['ID_type_t']?>">
+                                        <input type="hidden" name="ID_valuta" value="<?=$row['ID_valuta']?>">
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <label for="price" class="form-label">Цена</label>
+                                                <input type="number" class="form-control" name="price" min="0" step="0.01" value="<?=$row['price']?>">      
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
