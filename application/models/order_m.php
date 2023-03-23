@@ -15,13 +15,7 @@ class Order_m extends CI_Model {
             $query = $this->db->query($sql);
             return $query->result_array(); 
         }
-
-        public function upd_order_status($status, $id)
-        {
-            $this->db->set('status', $status)
-                    ->where('ID_order', $id)
-                    ->update('order');
-        }
+        
 }
 
 
