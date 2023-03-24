@@ -2,7 +2,7 @@
     class User extends CI_Controller {
 
     //Просмотр пользователей|Пручковский
-    public function index()
+    public function browse_user()
     {
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
@@ -38,11 +38,11 @@
                 $this->load->model('user_m');
                 $this->user_m->add_user($data);
 
-                redirect(base_url('user/index'));
+                redirect(base_url('user/browse_user'));
             }
             else
             {
-                redirect(base_url('user/index'));
+                redirect(base_url('user/browse_user'));
             }
         }
     }
@@ -58,7 +58,7 @@
         $this->load->model('user_m');
         $this->user_m->upd_user($fio, $role, $login, $password, $id);
 
-        redirect('user/index');
+        redirect('user/browse_user');
     }
     
     //Удаление пользователя|Пручковский
@@ -69,7 +69,8 @@
         );
         $this->load->model('user_m');
         $this->user_m->del_user($data);
-        redirect('user/index');
+        
+        redirect('user/browse_user');
     }
 
 }

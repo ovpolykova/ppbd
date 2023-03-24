@@ -2,7 +2,7 @@
     class Contract_admin extends CI_Controller {
 
     //Просмотр контрагентов|Пручковский
-    public function index()
+    public function browse_contract_admin()
     {
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
@@ -11,7 +11,7 @@
         $data['contract'] = $this->contract_m->sel_contract();
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);
-        $this->load->view('pages/contract_editing', $data);
+        $this->load->view('pages/contract', $data);
         $this->load->view('templates/footer');
     }
 
@@ -39,7 +39,7 @@
             $this->load->model('contract_m');
             $this->contract_m->add_contract($data);
 
-            redirect(base_url('contract_admin/index'));
+            redirect(base_url('contract_admin/browse_contract_admin'));
         }
     }
 
@@ -56,7 +56,7 @@
         $this->load->model('contract_m');
         $this->contract_m->upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id);
 
-        redirect('contract_admin/index');
+        redirect('contract_admin/browse_contract_admin');
     }
 
     //Удаление контрагента|Пручковский
@@ -67,7 +67,8 @@
         );
         $this->load->model('contract_m');
         $this->contract_m->del_contract($data);
-        redirect('contract_admin/index');
+        
+        redirect('contract_admin/browse_contract_admin');
     }
 
 }

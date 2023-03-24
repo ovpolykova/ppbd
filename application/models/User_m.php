@@ -46,11 +46,10 @@ class User_m extends CI_Model {
         $this->db->delete('users', $data);
     }
 
-    //ВЫбрать пользователя|Пручковский
+    //Выбрать пользователя|Пручковский
     public function sel_user_table()
     {
-        $sql = "SELECT * FROM users";
-        $query = $this->db->query($sql);
+        $query = $this->db->get('users');
         return $query->result_array();
     }
 
