@@ -28,7 +28,7 @@
         $data['order'] = $this->report_m->sel_rep_order_contract_date($date1, $date2);
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);
-        $this->load->view('pages/report_order_contract', $data);
+        $this->load->view('pages/rep_order_contract', $data);
         $this->load->view('templates/footer');
     }
 
