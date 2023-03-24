@@ -31,8 +31,12 @@
                     'ID_valuta'  => $this->input->post('value'.$a++),
                     'price'      => $this->input->post('value'.$a++)
                 );
-                $this->load->model('price_m');
-                $this->price_m->add_price($data);
+                $check = $this->input->post('value'.($a-1));
+                if ($check != 0) {
+                    $this->load->model('price_m');
+                    $this->price_m->add_price($data);
+                }
+
             }
 
             $this->session->set_flashdata('success_add_price','Прайс-лист успешно добавлен!');

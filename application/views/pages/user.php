@@ -120,6 +120,7 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
                                             <select class="form-select" name="role">
+                                                <option value="<?=$row['role']?>" selected><?=$row['role']?></option>
                                                 <option value="Администратор">Администратор</option>
                                                 <option value="Оператор">Оператор</option>
                                                 <option value="Контрагент">Контрагент</option>
