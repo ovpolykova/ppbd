@@ -25,7 +25,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?=base_url('report_order_contract/index')?>">По контрагентам</a></li>
                     <li><a class="dropdown-item" href="<?=base_url('report_order_product/index')?>">По товарам</a></li>
-                    <li><a class="dropdown-item" href="#">Не выполненных срок</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('report_order/browse_order_fall')?>">Не выполненных срок</a></li>
                 </ul>
             </li>
         </ul>
