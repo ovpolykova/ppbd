@@ -24,7 +24,7 @@
                                 <h1 class="modal-title fs-5" id="modalAddLabel1">Добавление пользователя</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                             </div>
-                            <form action="<?=base_url('User/add_action')?>" method="post">
+                            <form action="<?=base_url('User/add_user')?>" method="post">
                             <div class="modal-body">
                                 <div class="p-4">
 
@@ -102,7 +102,7 @@
                     <div class="modal fade" id="<?=$row['ID_user']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="<?=base_url('user/upd_action')?>" method="post">
+                                <form action="<?=base_url('user/upd_user')?>" method="post">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя №<?=$row['ID_user']?></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
@@ -151,7 +151,7 @@
 
                     </td>
                     <td>
-                    <form action="<?=base_url('user/del_action')?>" method="post">
+                    <form action="<?=base_url('user/del_user')?>" method="post">
                         <button class="btn btn-outline-danger" name="ID_user" value="<?=$row['ID_user']?>">Удалить</button></td>
                     </form>
                 </tr>

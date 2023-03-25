@@ -9,6 +9,7 @@
 
         $this->load->model('user_m');
         $data['users'] = $this->user_m->sel_user_table();
+        
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);
         $this->load->view('pages/user', $data);
@@ -16,14 +17,14 @@
     }
 
     //Добавление пользователя|Пручковский
-    public function add_action()
+    public function add_user()
     {
         if (!empty($_POST))
         {
-            $fio = $this->input->post('fio');
-            $role = $this->input->post('role');
-            $login = $this->input->post('login');
-            $password = $this->input->post('password');
+            $fio        = $this->input->post('fio');
+            $role       = $this->input->post('role');
+            $login      = $this->input->post('login');
+            $password   = $this->input->post('password');
             $repassword = $this->input->post('repassword');
 
             if ($password == $repassword)
@@ -48,13 +49,14 @@
     }
 
     //Изменение пользователя|Пручковский
-    public function upd_action()
+    public function upd_user()
     {
         $fio      = $this->input->post('fio');
         $role     = $this->input->post('role');
         $login    = $this->input->post('login');
         $password = $this->input->post('password');
         $id       = $this->input->post('ID_user');
+
         $this->load->model('user_m');
         $this->user_m->upd_user($fio, $role, $login, $password, $id);
 
@@ -62,11 +64,12 @@
     }
     
     //Удаление пользователя|Пручковский
-    public function del_action()
+    public function del_user()
     {
         $data = array(
             'ID_user' => $this->input->post('ID_user')
         );
+
         $this->load->model('user_m');
         $this->user_m->del_user($data);
         

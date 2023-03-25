@@ -1,6 +1,7 @@
 <?php
 	class Login extends CI_Controller {
 
+    //Страница авторизации|Харламов
 	public function index()
 	{
         $this->load->view('templates/header');
@@ -9,6 +10,7 @@
         $this->load->view('templates/footer');
 	}
 
+    //Выполнение входа|Харламов
     public function log_action()
 	{
         $login = $this->input->post('login');
