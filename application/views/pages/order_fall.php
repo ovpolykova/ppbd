@@ -11,7 +11,7 @@
 
     <div class="" style="margin-top:100">
         <div class="rounded d-flex justify-content-center">
-            <form action="<?=base_url('report_order/browse_order_fall')?>" method="post" class="row g-2 needs-validation">
+            <form action="<?=base_url('report/browse_order_fall')?>" method="post" class="row g-2 needs-validation">
                 <div class="col-md-6">
                     <label for="date1" class="form-label">Дата С</label>
                     <input type="date" name="date1" class="form-control">

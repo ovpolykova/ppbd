@@ -17,20 +17,8 @@ class Report_m extends CI_Model {
         
     }
 
-    //Выбрать заказ по контрагентам|Пручковский
-    public function sel_rep_order_contract()
-    {
-        $query = $this->db->select('ID_order, contractor, SUM(price*count)')
-                          ->from('`order`, `contract`, price_list')
-                          ->where('`order`.ID_contract=`contract`.ID_contract')
-                          ->where('`order`.ID_list=price_list.ID_list')
-                          ->group_by('ID_order, contractor')
-                          ->get();
-        return $query->result_array();
-    }
-
     //Выбрать заказ по контрагентам за период|Пручковский
-    public function sel_rep_order_contract_date($date1, $date2)
+    public function sel_rep_order_contract($date1, $date2)
     {
         $query = $this->db->select('ID_order, contractor, SUM(price*count)')
                           ->from('`order`, `contract`, price_list')
@@ -42,20 +30,8 @@ class Report_m extends CI_Model {
         return $query->result_array();
     }
 
-    //Выбрать заказ по товарам|Пручковский
-    public function sel_rep_order_product()
-    {
-        $query = $this->db->select('ID_order, name_product, SUM(price*count)')
-                          ->from('`order`, price_list, product')
-                          ->where('`order`.ID_list=price_list.ID_list')
-                          ->where('price_list.ID_product=product.ID_product')
-                          ->group_by('ID_order, name_product')
-                          ->get();
-        return $query->result_array();
-    }
-
     //Выбрать заказ по товарам за период|Пручковский
-    public function sel_rep_order_product_date($date1, $date2)
+    public function sel_rep_order_product($date1, $date2)
     {
         $query = $this->db->select('ID_order, name_product, SUM(price*count)')
                           ->from('`order`, price_list, product')

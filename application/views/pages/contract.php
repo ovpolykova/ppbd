@@ -24,7 +24,7 @@
                                 <h1 class="modal-title fs-5" id="modalAddLabel1">Добавление контрагента</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                             </div>
-                            <form action="<?=base_url('contract_admin/add_contract')?>" method="post">
+                            <form action="<?=base_url('contract/add_contract')?>" method="post">
                             <div class="modal-body">
                                 <div class="p-4">
 
@@ -109,7 +109,7 @@
                     <div class="modal fade" id="<?=$row['ID_contract']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form action="<?=base_url('contract_admin/upd_contract')?>" method="post">
+                                <form action="<?=base_url('contract/upd_contract')?>" method="post">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="modalAddLabel2">Редактирование пользователя №<?=$row['ID_contract']?></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
@@ -162,7 +162,7 @@
 
                     </td>
                     <td>
-                    <form action="<?=base_url('contract_admin/del_contract')?>" method="post">
+                    <form action="<?=base_url('contract/del_contract')?>" method="post">
                         <button class="btn btn-outline-danger" name="ID_contract" value="<?=$row['ID_contract']?>">Удалить</button></td>
                     </form>
                 </tr>

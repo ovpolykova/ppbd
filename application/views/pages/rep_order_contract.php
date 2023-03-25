@@ -12,7 +12,7 @@
     <div class="container-fluid" style="margin-top:20px">
         <div class="" style="margin-top:100">
             <div class="rounded d-flex justify-content-center">
-                <form  method="POST" action="<?=base_url('rep_order_contract/sel_rep_order_contract_date')?>" class="row g-2 needs-validation">
+                <form  method="POST" action="<?=base_url('report/browse_rep_order_contract')?>" class="row g-2 needs-validation">
                 <div class="col-md-6">
                     <label for="exampleInputEmail" class="form-label">Дата С</label>
                     <input type="date" name="date1" class="form-control">
