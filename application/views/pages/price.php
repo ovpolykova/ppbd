@@ -62,7 +62,7 @@
     <hr>
         <div class="p-3 mb-2 bg-info text-dark">
             <h1 class="display-6">Поиск</h1>
-            <form action="<?=base_url('price/browse_price_filter')?>" method="post">
+            <form action="<?=base_url('price/browse_price')?>" method="post">
                 <div class="row align-items-end">
                     <div class="col-md-3">
                         <label for="name_product" class="form-label">Товар</label>
@@ -72,7 +72,7 @@
                         <label for="ID_type_t" class="form-label">Тип прайс-листа</label>
                         <select class="form-select" name="ID_type_t">
 
-                            <option value="all">Все</option>
+                            <option value="">Все</option>
                             <?php foreach ($type_t as $row) {?>
                             <option value="<?=$row['ID_type_t']?>"><?=$row['type_t']?></option>
                             <?php }?>
@@ -81,7 +81,6 @@
                     </div>
                     <div class="col-md-3 align-text-bottom">
                         <button class="btn btn-primary">Поиск</button>
-                        <a href="<?=base_url('price/browse_price')?>" class="btn btn-danger">Очистить</a>
                     </div>
                 </div>                             
             </form>

@@ -10,8 +10,8 @@
                     Справочники
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="<?=base_url('contract_admin/index')?>">Контрагент</a></li>
-                    <li><a class="dropdown-item" href="<?=base_url('user/index')?>">Пользователь</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('contract/browse_contract_admin')?>">Контрагент</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('user/browse_user')?>">Пользователь</a></li>
                     <li><a class="dropdown-item" href="<?=base_url('price/browse_price')?>">Прайс-лист</a></li>
                     <li><a class="dropdown-item" href="<?=base_url('product/browse_product')?>">Товар-прайс</a></li>
                 </ul>
@@ -23,9 +23,9 @@
                     Списки заказов
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="<?=base_url('report_order_contract/index')?>">По контрагентам</a></li>
-                    <li><a class="dropdown-item" href="<?=base_url('report_order_product/index')?>">По товарам</a></li>
-                    <li><a class="dropdown-item" href="#">Не выполненных срок</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('report/browse_rep_order_contract')?>">По контрагентам</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('report/browse_rep_order_product')?>">По товарам</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('report/browse_order_fall')?>">Не выполненных срок</a></li>
                 </ul>
             </li>
         </ul>

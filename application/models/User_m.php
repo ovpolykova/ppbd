@@ -6,7 +6,7 @@ class User_m extends CI_Model {
         $this->load->database();
     }
 
-    //Харламов
+    //Выбрать пользователя|Харламов
     public function sel_user($login, $password)
     {
         $sql = "SELECT * FROM users WHERE login='$login' AND password='$password'";
@@ -46,11 +46,10 @@ class User_m extends CI_Model {
         $this->db->delete('users', $data);
     }
 
-    //ВЫбрать пользователя|Пручковский
+    //Выбрать пользователя для таблиц|Пручковский
     public function sel_user_table()
     {
-        $sql = "SELECT * FROM users";
-        $query = $this->db->query($sql);
+        $query = $this->db->get('users');
         return $query->result_array();
     }
 

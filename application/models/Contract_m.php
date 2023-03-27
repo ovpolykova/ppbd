@@ -6,12 +6,14 @@ class Contract_m extends CI_Model {
         $this->load->database();
     }
 
-    //Харламов
+    //Выбрать контрагента|Пручковский
     public function sel_contract()
     {
-        $sql = "SELECT ID_contract, contractor, type_c, address_c, date_c, inn, kpp   
-        FROM contract, type_c WHERE contract.ID_type_c = type_c.ID_type_c ORDER BY ID_contract";
-        $query = $this->db->query($sql);
+        $query = $this->db->select('ID_contract, contractor, type_c, address_c, date_c, inn, kpp')
+                          ->from('contract, type_c')
+                          ->where('contract.ID_type_c = type_c.ID_type_c')
+                          ->order_by('ID_contract')
+                          ->get();
         return $query->result_array();
     }
 

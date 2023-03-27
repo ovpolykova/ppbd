@@ -6,7 +6,7 @@ class Product_m extends CI_Model {
         $this->load->database();
     }
 
-    //Просмотр товаров с привязкой к определенному прайс-листу|Кузнецов
+    //Выбрать товар с привязкой к определенному прайс-листу|Кузнецов
     public function sel_product()
     {
         $query = $this->db->select('p.ID_product, name_product')
@@ -17,12 +17,6 @@ class Product_m extends CI_Model {
         return $query->result_array();
     }
 
-    //Добавление товара с привязкой к определенному прайс-листу|Кузнецов
-    public function add_product($data)
-    {
-        //$this->db->insert('product', $data);
-    }
-
     //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
     public function upd_price_product($valuta, $price, $id)
     {
@@ -30,19 +24,6 @@ class Product_m extends CI_Model {
                  ->set('price', $price)
                  ->where('ID_list', $id)
                  ->update('price_list');
-    }
-
-    //Удаление товара с привязкой к определенному прайс-листу|Кузнецов
-    public function del_product($data)
-    {
-        //$this->db->delete('product', $data);
-    }
-
-    //Выбрать группу|Кузнецов !НОВЫЙ!
-    public function sel_group()
-    {
-        // $query = $this->db->get('group');
-        // return $query->result_array();
     }
 
     //Список прайс-листа одного товара|Кузнецов

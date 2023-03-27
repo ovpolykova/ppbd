@@ -37,21 +37,21 @@ class Price_m extends CI_Model {
         $this->db->delete('price_list', $data);
     }
 
-    //Выбрать Товар|Кузнецов !НОВЫЙ!
+    //Выбрать Товар|Кузнецов
     public function sel_product()
     {
         $query = $this->db->get('product');
         return $query->result_array();
     }
 
-    //Выбрать тип прайс-листа|Кузнецов !НОВЫЙ!
+    //Выбрать тип прайс-листа|Кузнецов
     public function sel_type_t()
     {
         $query = $this->db->get('type_t');
         return $query->result_array();
     }
 
-    //Выбрать валюту|Кузнецов !НОВЫЙ!
+    //Выбрать валюту|Кузнецов
     public function sel_valuta()
     {
         $query = $this->db->get('valuta');
@@ -71,6 +71,6 @@ class Price_m extends CI_Model {
                           ->order_by('ID_list')
                           ->get();
         return $query->result_array();
-        //var_dump($this->db->last_query());
+        var_dump($this->db->last_query());
     }
 }
