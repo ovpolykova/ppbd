@@ -56,10 +56,11 @@ class Report_m extends CI_Model {
     }
 
 
-    public function upd_order_status_doc($status, $id)
+    public function upd_order_status_doc($status, $date_send, $id)
     {
         $this->db->set("status", $status)
-                ->where("ID_order", $id)
-                ->update("`order`");
+                 ->set("date_send", $date_send)
+                 ->where("ID_order", $id)
+                 ->update("`order`");
     }
 }

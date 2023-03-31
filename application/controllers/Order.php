@@ -18,12 +18,17 @@
 
     //Изменение заказов|Харламов
     public function upd_order()
-	{
+	{ 
+
         $status = $this->input->post('storder');
+        if(!empty($this->input->post('storder')=='Отправка'))
+        {
+            $date_send = date('y-m-d');
+        }
         $id     = $this->input->post('ID_order');
         $this->load->model('order_m');
-        $this->order_m->upd_order_status($status, $id);
-        $data['browesorder'] = $this->order_m->upd_order_status($status, $id);
+        $this->order_m->upd_order_status($status, $date_send,  $id);
+        $data['browesorder'] = $this->order_m->upd_order_status($status, $date_send, $id);
         
         redirect('order/browes_order');
 	}
@@ -62,11 +67,12 @@
 
     public function upd_order_doc()
 	{
-        $status = 'отправка';
-        $id     = $this->input->post('ID_order');
+        $date_send = date('y-m-d');
+        $status    = 'отправка';
+        $id        = $this->input->post('ID_order');
         $this->load->model('report_m');
-        $this->report_m->upd_order_status_doc($status, $id);
-        $data['otchter'] = $this->report_m->upd_order_status_doc($status, $id);
+        $this->report_m->upd_order_status_doc($status, $date_send,  $id);
+        $data['otchter'] = $this->report_m->upd_order_status_doc($status, $date_send, $id);
         
         redirect('order/rep_delivery');
 	}
