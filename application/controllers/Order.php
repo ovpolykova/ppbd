@@ -68,7 +68,7 @@
     public function upd_order_doc()
 	{
         $date_send = date('y-m-d');
-        $status    = 'отправка';
+        $status    = 'Отправка';
         $id        = $this->input->post('ID_order');
         $this->load->model('report_m');
         $this->report_m->upd_order_status_doc($status, $date_send,  $id);
