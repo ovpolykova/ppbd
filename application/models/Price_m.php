@@ -73,4 +73,11 @@ class Price_m extends CI_Model {
         return $query->result_array();
         var_dump($this->db->last_query());
     }
+
+    //Выбрать группу товара|Кузнецов
+    public function sel_group()
+    {
+        $query = $this->db->get('group');
+        return $query->result_array();
+    }
 }

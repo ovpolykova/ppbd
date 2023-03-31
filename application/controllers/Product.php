@@ -18,21 +18,4 @@
         $this->load->view('pages/product', $data);
         $this->load->view('templates/footer');
 	}
-
-    //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
-    public function upd_price_product()
-	{
-        $a = 1;
-        
-        for ($i=1; $i <= $this->input->post('count_list'); $i++) { 
-            $id = $this->input->post('value'.$a++);
-            $valuta = $this->input->post('value'.$a++);
-            $price = $this->input->post('value'.$a++);
-
-            $this->load->model('product_m');
-            $this->product_m->upd_price_product($valuta, $price, $id);
-        }
-
-        redirect('product/browse_product');
-	}
 }
