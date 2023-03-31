@@ -53,7 +53,6 @@
     <input type="hidden" name="ID_order" value="<?=$row['ID_order']?>">
     <label for="validationDefault04" class="form-label">Статус</label>
     <select class="form-select" id="validationDefault04" name="storder" required value="<?=$row['status']?>">
-      <option value="Заказан">Заказан</option>
       <option value="Подготовен к доставку">Подготовен к доставку</option>
       <option value="Отправка">Отправка</option>
     </select>
