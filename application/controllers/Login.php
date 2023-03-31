@@ -1,6 +1,7 @@
 <?php
 	class Login extends CI_Controller {
 
+    //Страница авторизации|Харламов
 	public function index()
 	{
         $this->load->view('templates/header');
@@ -9,13 +10,14 @@
         $this->load->view('templates/footer');
 	}
 
+    //Выполнение входа|Харламов
     public function log_action()
 	{
         $login = $this->input->post('login');
         $password = $this->input->post('password');
 
-        $this->load->model('user');
-        $result = $this->user->sel_user($login, $password);
+        $this->load->model('user_m');
+        $result = $this->user_m->sel_user($login, $password);
 
         if($result != false)
         {
@@ -33,9 +35,9 @@
 
             switch($role)
             {
-                case 'Администратор': redirect((base_url('admin/index'))); 
+                case 'Администратор': redirect((base_url('product/browse_product'))); 
                 break;
-                case 'Оператор': redirect(base_url('operator/index'));
+                case 'Оператор': redirect(base_url('contract/browse_contract'));
                 break;
                 case 'Контрагент': redirect(base_url(('main/index'))); 
                 break;
