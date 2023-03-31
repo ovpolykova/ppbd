@@ -27,6 +27,8 @@
         $data['type_t'] = $this->price_m->sel_type_t();
         $data['valuta'] = $this->price_m->sel_valuta();
         $data['product'] = $this->price_m->sel_product();
+        $data['price'] = $this->price_m->sel_price();
+        $data['group'] = $this->price_m->sel_group();
 
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);
@@ -39,24 +41,16 @@
 	{
         if (!empty($_POST))
         {
-            $a = 1;
+            $data = array(
+                'ID_product' => $this->input->post('ID_product'),
+                'ID_type_t'  => $this->input->post('ID_type_t'),
+                'ID_valuta'  => $this->input->post('ID_valuta'),
+                'price'      => $this->input->post('price')
+            );
 
-            for ($i=1; $i <= 3; $i++) { 
-                $data = array(
-                    'ID_product' => $this->input->post('ID_product'),
-                    'ID_type_t'  => $this->input->post('value'.$a++),
-                    'ID_valuta'  => $this->input->post('value'.$a++),
-                    'price'      => $this->input->post('value'.$a++)
-                );
-                $check = $this->input->post('value'.($a-1));
-
-                if ($check != 0) {
-                    $this->load->model('price_m');
-                    $this->price_m->add_price($data);
-                }
-            }
-
-            $this->session->set_flashdata('success_add_price','Прайс-лист успешно добавлен!');
+            $this->load->model('price_m');
+            $this->price_m->add_price($data);
+            
             redirect('price/browse_price');
         }
 	}
@@ -90,5 +84,21 @@
 
         redirect('price/browse_price');
 	}
+    
+    //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
+    public function upd_price_product()
+	{
+        $a = 1;
+        
+        for ($i=1; $i <= $this->input->post('count_list'); $i++) { 
+            $id = $this->input->post('value'.$a++);
+            $valuta = $this->input->post('value'.$a++);
+            $price = $this->input->post('value'.$a++);
 
+            $this->load->model('product_m');
+            $this->product_m->upd_price_product($valuta, $price, $id);
+        }
+
+        redirect('price/browse_price');
+	}
 }
