@@ -112,7 +112,7 @@
 
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                            <input type="text" class="form-control" name="ID_user" placeholder="ФИО" required value="<?=$row['ID_user']?>">
+                                            <input type="text" class="form-control" name="ID_user" required value="<?=$row['ID_user']?>">
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
