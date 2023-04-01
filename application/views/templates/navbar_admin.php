@@ -12,8 +12,8 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?=base_url('contract/browse_contract_admin')?>">Контрагент</a></li>
                     <li><a class="dropdown-item" href="<?=base_url('user/browse_user')?>">Пользователь</a></li>
-                    <li><a class="dropdown-item" href="<?=base_url('price/browse_price')?>">Прайс-лист</a></li>
-                    <li><a class="dropdown-item" href="<?=base_url('product/browse_product')?>">Товар-прайс</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('price/browse_price')?>">Товары (корректировка цен)</a></li>
+                    <li><a class="dropdown-item" href="<?=base_url('product/browse_product')?>">Прайс-лист</a></li>
                 </ul>
             </li>
         </ul>
