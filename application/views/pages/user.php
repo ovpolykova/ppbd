@@ -71,6 +71,7 @@
 
 <div class="container">
     <div class="container-fluid" style="margin-top:20px">
+        <?=$this->pagination->create_links()?>
         <table class="table">
             <thead>
                 <tr>
