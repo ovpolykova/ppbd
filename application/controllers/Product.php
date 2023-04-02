@@ -59,4 +59,43 @@
 
         redirect('product/browse_product');
 	}
+
+    //Добавление товара|Кузнецов
+	public function add_product()
+	{
+        //Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
+        $data = array(
+            'name_product' => $this->input->post('name_product'),
+            'ID_group'     => $this->input->post('ID_group'),
+            'unit'         => $this->input->post('unit'),
+            'description'  => $this->input->post('description'),
+            'image'        => $this->input->post('image')
+        );
+
+        $this->load->model('product_m');
+        $this->product_m->add_product($data);
+
+        redirect('price/browse_price');
+	}
+
+    //Удаление товара|Кузнецов
+	public function del_product()
+	{
+        //Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
+        $data = array(
+            'ID_product' => $_GET['ID_product']
+        );
+
+        $this->load->model('price_m');
+        $this->price_m->del_price($data);
+
+        $this->load->model('product_m');
+        $this->product_m->del_product($data);
+        
+        redirect('price/browse_price');
+	}
 }

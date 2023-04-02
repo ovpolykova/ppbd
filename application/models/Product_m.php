@@ -7,8 +7,9 @@ class Product_m extends CI_Model {
     }
 
     //Выбрать товар с привязкой к определенному прайс-листу|Кузнецов
-    public function sel_product()
+    public function sel_product($limit, $offset)
     {
+        $this->db->limit($limit, $offset);
         $query = $this->db->select('p.ID_product, name_product')
                           ->from('price_list p, product')
                           ->where('p.ID_product=product.ID_product')
@@ -37,5 +38,17 @@ class Product_m extends CI_Model {
                           ->where('p.ID_product', $id)
                           ->get();
         return $query->result_array();
+    }
+
+    //Добавление товара|Кузнецов
+    public function add_product($data)
+    {
+        $this->db->insert('product', $data);
+    }
+
+    //Удаление товара|Кузнецов
+    public function del_product($ID_product)
+    {
+        $this->db->delete('product', $ID_product);
     }
 }

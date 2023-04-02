@@ -19,6 +19,8 @@
         $data['type_t']  = $this->price_m->sel_type_t();
         $data['valuta']  = $this->price_m->sel_valuta();
         
+        $this->load->library('pagination');
+
         if ($_GET) {
             $data['product'] = $this->price_m->sel_product_filter($data_filter);
         } else {
