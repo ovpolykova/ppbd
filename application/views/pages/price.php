@@ -1,6 +1,7 @@
 <!-- Страница прайс-листа (для администратора) с модал. окна – добавить прайс-лист|Кузнецов -->
 <div class="container">
     <h1 class="display-3 text-center mb-5">Товары с указанием цены</h1>
+    
     <div class="row">
 
     <div class="col-2">
@@ -9,7 +10,6 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Добавить новый товар
             </button>
-
             <!-- Модальное окно -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
