@@ -1,18 +1,24 @@
 <!-- Страница прайс-листа (для администратора) с модал. окна – добавить прайс-лист|Кузнецов -->
 <div class="container">
-    <h1 class="display-3 text-center mb-5">Прайс-лист</h1>
+    <h1 class="display-3 text-center mb-5">Товары с указанием цены</h1>
     <div class="row">
 
     <div class="col-2">
         <h3 class="text-center">Фильтр</h3>
-        <form action="<?=base_url('price/browse_price')?>">
-            <input type="hidden" name="filter" value="1">
-            <?php foreach($group as $row) {?>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="<?=$row['ID_group']?>">
-                <label class="form-check-label" for="<?=$row['ID_group']?>"><?=$row['name_g']?></label>
-            </div>
-            <?php }?>
+        <form action="<?=base_url('price/browse_price')?>"> 
+            <?php foreach($group as $row) {
+                if (isset($_GET[$row['ID_group']])) {?>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label" for="<?=$row['ID_group']?>"><?=$row['name_g']?></label>
+                        <input class="form-check-input" type="checkbox" name="<?=$row['ID_group']?>" value="<?=$row['ID_group']?>" checked>
+                    </div>
+                <?php } else {?>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label" for="<?=$row['ID_group']?>"><?=$row['name_g']?></label>
+                        <input class="form-check-input" type="checkbox" name="<?=$row['ID_group']?>" value="<?=$row['ID_group']?>">
+                    </div>
+                <?php }
+             }?>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary mb-3">Поиск</button><br>
                 <a href="<?=base_url('price/browse_price')?>" class="btn btn-danger">Очистить</a>
@@ -28,7 +34,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?=$b?>" aria-expanded="false" aria-controls="collapseThree">
-                            <?=$row['name_product']?>
+                            <span class="badge bg-primary">Группа: <?=$row['name_g']?></span><?=$row['name_product']?>
                         </button>
                     </h2>
                     <div id="<?=$b?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
