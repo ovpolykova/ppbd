@@ -4,6 +4,62 @@
     <div class="row">
 
     <div class="col-2">
+        <div class="text-center">
+            <!-- Кнопка-триггер модального окна -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Добавить новый товар
+            </button>
+
+            <!-- Модальное окно -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <form action="<?=base_url('product/add_product')?>" method="post">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление нового товара</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <div class="mb-3">
+                                <label for="name_product" class="form-label">Наименование товара</label>
+                                <input type="text" class="form-control" name="name_product" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="mb-3">
+                                        <label for="ID_group" class="form-label">Группа</label>
+                                        <select class="form-select" name="ID_group">
+                                            <?php foreach($group as $row) {?>
+                                            <option value="<?=$row['ID_group']?>"><?=$row['name_g']?></option>
+                                            <?php }?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="mb-3">
+                                        <label for="unit" class="form-label">Единица</label>
+                                        <input type="text" class="form-control" name="unit" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Описание</label>
+                                <textarea class="form-control" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Изображение</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h3 class="text-center">Фильтр</h3>
         <form action="<?=base_url('price/browse_price')?>"> 
             <?php foreach($group as $row) {
@@ -27,6 +83,7 @@
     </div>
 
     <div class="col-10">
+        
         <div class="accordion">
             <?php $a=1; $b=1?>
             <?php foreach($product as $row) {
@@ -79,15 +136,16 @@
                                 <br>
 
                                 <div class="text-end">
-                                    <!-- Кнопка-триггер модального окна -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<?=$b?>">
-                                        Добавить тип прайс-листа
-                                    </button>
-
-                                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                <!-- Кнопка-триггер модального окна -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<?=$b?>">
+                                    Добавить тип прайс-листа
+                                </button>
+                        
+                                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                            
+                                    <a href="<?=base_url('product/del_product?ID_product='.$row['ID_product'])?>" type="button" class="btn btn-danger">Удалить товар</a>
                                 </div>
-
-                            </form>
+                                </form>
                                 <!-- Модальное окно -->
                                 <form action="<?=base_url('price/add_price')?>" method="post">
                                     <div class="modal fade" id="modal<?=$b?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
