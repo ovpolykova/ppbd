@@ -17,7 +17,7 @@
                 </button>
 
                 <!-- Модальное окно -->
-                <div class="modal fade" id="modalAdd1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
+                <div class="modal fade" id="modalAdd1" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -100,7 +100,7 @@
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="<?=$row['ID_user']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_user']?>" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form action="<?=base_url('user/upd_user')?>" method="post">

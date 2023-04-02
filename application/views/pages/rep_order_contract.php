@@ -28,6 +28,7 @@
                 </form>
             </div>
         </div>
+        <?=$this->pagination->create_links()?>
         <table class="table">
             <thead>
                 <tr>

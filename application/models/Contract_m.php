@@ -7,14 +7,22 @@ class Contract_m extends CI_Model {
     }
 
     //Выбрать контрагента|Пручковский
-    public function sel_contract()
+    public function sel_contract($limit, $offset)
     {
+        $this->db->limit($limit, $offset);
         $query = $this->db->select('ID_contract, contractor, type_c, address_c, date_c, inn, kpp')
                           ->from('contract, type_c')
                           ->where('contract.ID_type_c = type_c.ID_type_c')
                           ->order_by('ID_contract')
                           ->get();
         return $query->result_array();
+    }
+
+    //Получение количества для пагинации контрагента|Пручковский
+    public function getTotalRows()
+    {
+        $query = $this->db->get('contract');
+        return $query->num_rows();
     }
 
     //Добавить контрагента|Пручковский
@@ -41,4 +49,5 @@ class Contract_m extends CI_Model {
     {
         $this->db->delete('contract', $data);
     }
+
 }

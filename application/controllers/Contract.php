@@ -17,9 +17,33 @@
     {
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
-
         $this->load->model('contract_m');
-        $data['contract'] = $this->contract_m->sel_contract();
+
+        //Пагинация
+        $this->load->library('pagination');
+
+        $config['base_url'] = base_url('contract/browse_contract_admin');
+        $config['per_page'] = 10;
+        $config['total_rows'] = $this->contract_m->getTotalRows();
+
+        //Стиль пагинации
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['next_tag_open'] = '<li class="page-item ">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li class="page-item">';
+        $config['prev_tag_close'] = '</li>';
+        $config['num_tag_open'] = '<li class="page-item">';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link">';
+        $config['cur_tag_close'] = '</a></li>';
+
+        $config['attributes'] = array('class' => 'page-link');
+
+        $this->pagination->initialize($config);
+
+        $data['contract'] = $this->contract_m->sel_contract($config['per_page'], $this->uri->segment(3));
+
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);
         $this->load->view('pages/contract', $data);

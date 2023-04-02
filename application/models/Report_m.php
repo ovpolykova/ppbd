@@ -18,8 +18,9 @@ class Report_m extends CI_Model {
     }
 
     //Выбрать заказ по контрагентам за период|Пручковский
-    public function sel_rep_order_contract($date1, $date2)
+    public function sel_rep_order_contract($date1, $date2, $limit, $offset)
     {
+        $this->db->limit($limit, $offset);
         $query = $this->db->select("ID_order, contractor, date_order, date_send, SUM(price*count), status")
                           ->from("`order`, `contract`, price_list")
                           ->where("`order`.ID_contract=`contract`.ID_contract")
@@ -31,9 +32,17 @@ class Report_m extends CI_Model {
         return $query->result_array();
     }
 
-    //Выбрать заказ по товарам за период|Пручковский
-    public function sel_rep_order_product($date1, $date2)
+    //Получение количества для пагинации контрагента|Пручковский
+    public function getTotalRows_contract()
     {
+        $query = $this->db->get('`order`');
+        return $query->num_rows();
+    }
+
+    //Выбрать заказ по товарам за период|Пручковский
+    public function sel_rep_order_product($date1, $date2, $limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
         $query = $this->db->select("ID_order, name_product, date_order, date_send, SUM(price*count), status")
                           ->from("`order`, price_list, product")
                           ->where("`order`.ID_list=price_list.ID_list")
@@ -43,6 +52,13 @@ class Report_m extends CI_Model {
                           ->group_by("ID_order, name_product, date_order, date_send, status")
                           ->get();
         return $query->result_array(); 
+    }
+
+    //Получение количества для пагинации товара|Пручковский
+    public function getTotalRows_product()
+    {
+        $query = $this->db->get('`order`');
+        return $query->num_rows();
     }
 
     //Выбрать заказ, не выполненных в срок за период|Кузнецов

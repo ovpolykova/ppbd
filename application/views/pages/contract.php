@@ -17,7 +17,7 @@
                 </button>
 
                 <!-- Модальное окно -->
-                <div class="modal fade" id="modalAdd1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
+                <div class="modal fade" id="modalAdd1" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -74,6 +74,7 @@
 
 <div class="container">
     <div class="container-fluid" style="margin-top:20px">
+        <?=$this->pagination->create_links()?>
         <table class="table">
             <thead>
                 <tr>
@@ -106,7 +107,7 @@
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="<?=$row['ID_contract']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_contract']?>" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form action="<?=base_url('contract/upd_contract')?>" method="post">
