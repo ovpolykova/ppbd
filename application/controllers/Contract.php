@@ -24,6 +24,8 @@
         $this->load->view('templates/footer');
 	}
 
+
+
     //Просмотр контрагентов|Пручковский
     public function browse_contract_admin()
     {
