@@ -22,23 +22,21 @@
             <tr>
                 <th scope="col">№</th>
                 <th scope="col">Наименование контрагент</th>
-                <th scope="col">Адрес</th>
-                <th scope="col">Кол-во</th>
-                <th scope="col">Дата заказа</th>
-                <th scope="col">Дата доставке</th>
+                <th scope="col">Тип контрагент</th>
+                <th scope="col">Юр. адрес</th>
+                <th scope="col">Дата договора</th>
                 <th scope="col">ИНН</th>
                 <th scope="col">КПП</th>
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($contract as $row) {?>
+        <?php foreach ($tovars as $row) {?>
             <tr>
                 <th scope="row"><?=$row['ID_contract']?></th>
                 <td><?=$row['contractor']?></td>
+                <td><?=$row['type_c']?></td>
                 <td><?=$row['address_c']?></td>
-                <td><?=$row['count']?></td>
-                <td><?=$row['date_order']?></td>
-                <td><?=$row['date_send']?></td>
+                <td><?=$row['date_c']?></td>
                 <td><?=$row['inn']?></td>
                 <td><?=$row['kpp']?></td>
             </tr>

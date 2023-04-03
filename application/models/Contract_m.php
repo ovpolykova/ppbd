@@ -17,6 +17,20 @@ class Contract_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Выбрать контрагента фильтры для заказы | Харламов 
+   
+    public function sel_contract_zak()
+    {
+        $query = $this->db->select('*')
+                          ->from('order, contract')
+                          ->where('order.ID_contract = contract.ID_contract')
+                          ->order_by('contractor')
+                        
+                          ->get();
+        return $query->result_array();
+    }
+
+
     //Добавить контрагента|Пручковский
     public function add_contract($data)
     {

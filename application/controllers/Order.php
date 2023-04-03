@@ -15,6 +15,19 @@
         $this->load->view('templates/footer');
 	}
 
+    //Просмотр товары|Харламов
+	public function browes_tovar()
+	{
+        $data['session'] = $this->session->userdata('login_session');
+
+        $this->load->model('order_m');
+        $data['tovars'] = $this->order_m->sel_tovars();
+        
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar_operator', $data);
+        $this->load->view('pages/tovar', $data);
+        $this->load->view('templates/footer');
+	}
 
     //Изменение заказов|Харламов
     public function upd_order()
