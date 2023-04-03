@@ -66,18 +66,20 @@ class User_m extends CI_Model {
         $this->session->sess_destroy();
     }
 
-    //Выбрать пользователя для таблиц|Пручковский
-    public function sel_user_table($limit, $offset)
+    //Выбрать контрагент|Харламов
+    public function sel_contractor($login, $password)
     {
-        $this->db->limit($limit, $offset);
-        $query = $this->db->get('users');
-        return $query->result_array();
-    }
-
-    //Получение количества для пагинации пользователя
-    public function getTotalRows()
-    {
-        $query = $this->db->get('users');
-        return $query->num_rows();
+        $sql = "SELECT * FROM contract WHERE login='$login' AND password='$password'";
+        $query = $this->db->query($sql);
+        
+        if($query->num_rows()==1)
+        {
+            return $query->row();
+        }
+        else 
+        {
+            return false;
+        }
+        
     }
 }
