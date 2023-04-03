@@ -18,8 +18,8 @@
                                 <input type="password" class="form-control" name="password" placeholder="Пароль">
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1" name="contractor">Я контрагент</label>
+                                <label class="form-check-label" for="contractor">Я контрагент</label>
+                                <input type="checkbox" class="form-check-input" name="contractor">
                             </div>
                             <div style="text-align: center;">
                             <button class="btn btn-primary text-center mt-2" type="submit">
