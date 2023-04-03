@@ -26,8 +26,16 @@
             </form>
         </div>
     </div>
-    <?=$this->pagination->create_links()?>
-    <table class="table">
+    <hr>
+
+    <!-- Скрипт для пагинации -->
+    <script>
+        $(document).ready(function () {
+        $('#order_fall').DataTable();
+    });
+    </script>
+    
+    <table id="order_fall" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">Номер заказа</th>
@@ -47,12 +55,10 @@
                 <td><?=$row['date_order']?></td>
                 <td><?=$row['date_send']?></td>
                 <td><?=$row['status']?></td>
-                <td>
             </tr>
             <?php }?>
             
         </tbody>
-
-
     </table>
+    <hr>
 </div>
