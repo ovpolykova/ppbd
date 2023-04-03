@@ -17,7 +17,13 @@
 </form>
 <br>
 
-        <table class="table table-striped table-hover">
+ <!-- Скрипт для пагинации -->
+ <script>
+        $(document).ready(function () {
+        $('#conctant').DataTable();
+    });
+    </script>
+        <table id="conctant" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">№</th>
