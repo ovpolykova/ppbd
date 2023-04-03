@@ -46,9 +46,9 @@
         //Проверка, включается ли фильтр
         if ($this->session->userdata('check') > 0)
         {
-            $config['total_rows'] = count($this->price_m->sel_product_filter($this->session->userdata('filter'), NULL, NULL));
+            $config['total_rows'] = count($this->price_m->sel_product_filter($this->session->userdata('filter'), NULL, NULL, NULL));
             $this->pagination->initialize($config);
-            $data['product'] = $this->price_m->sel_product_filter($this->session->userdata('filter'), $config['per_page'], $this->uri->segment(3));
+            $data['product'] = $this->price_m->sel_product_filter($this->session->userdata('filter'), NULL, $config['per_page'], $this->uri->segment(3));
         }
         else
         {

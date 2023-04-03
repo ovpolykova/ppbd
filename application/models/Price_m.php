@@ -57,7 +57,7 @@ class Price_m extends CI_Model {
                  ->delete('type_t');
     }
 
-    //Выбрать Товар|Кузнецов
+    //Выбрать Товар|Кузнецов и Волобуев
     public function sel_product($limit, $offset)
     {
         $this->db->limit($limit, $offset);
@@ -67,13 +67,25 @@ class Price_m extends CI_Model {
         return $query->result_array();
     }
 
-    //Выбрать товар ФИЛЬТР|Кузнецов
-    public function sel_product_filter($data_filter, $limit, $offset)
+    //Выбрать Товар ПОИСК|Волобуев
+    public function sel_product_search($search, $limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $query = $this->db->select('*')
+                          ->where('p.ID_group=g.ID_group')
+                          ->like('name_product', $search)
+                          ->get('product p, group g');
+        return $query->result_array();
+    }
+
+    //Выбрать товар ФИЛЬТР|Кузнецов и Волобуев
+    public function sel_product_filter($data_filter, $search, $limit, $offset)
     {
         $this->db->limit($limit, $offset);
         $query = $this->db->select('*')
                           ->where('p.ID_group=g.ID_group')
                           ->where_in('p.ID_group', $data_filter)
+                          ->like('name_product', $search)
                           ->get('product p, group g');
         return $query->result_array();
     }
