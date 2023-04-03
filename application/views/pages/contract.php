@@ -82,8 +82,15 @@
 
 <div class="container">
     <div class="container-fluid" style="margin-top:20px">
-        <?=$this->pagination->create_links()?>
-        <table class="table">
+    
+        <!-- Скрипт для пагинации -->
+        <script>
+            $(document).ready(function () {
+            $('#contract').DataTable();
+        });
+        </script>
+
+        <table id="contract" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th scope="col">№</th>

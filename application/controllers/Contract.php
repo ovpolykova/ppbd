@@ -23,7 +23,7 @@
         $this->load->library('pagination');
 
         $config['base_url'] = base_url('contract/browse_contract_admin');
-        $config['per_page'] = 10;
+        $config['per_page'] = 100;
         $config['total_rows'] = $this->contract_m->getTotalRows();
 
         //Стиль пагинации

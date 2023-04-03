@@ -24,9 +24,8 @@ class User_m extends CI_Model {
     }
 
     //Выбрать пользователя для таблиц|Пручковский
-    public function sel_user_table($limit, $offset)
+    public function sel_user_table()
     {
-        $this->db->limit($limit, $offset);
         $query = $this->db->get('users');
         return $query->result_array();
     }

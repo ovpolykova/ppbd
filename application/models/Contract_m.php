@@ -24,9 +24,8 @@ class Contract_m extends CI_Model {
     }
 
     //Выбрать контрагента|Пручковский
-    public function sel_contract($limit, $offset)
+    public function sel_contract()
     {
-        $this->db->limit($limit, $offset);
         $query = $this->db->select('ID_contract, contractor, type_c, address_c, date_c, inn, kpp, login, password')
                           ->from('contract, type_c')
                           ->where('contract.ID_type_c = type_c.ID_type_c')

@@ -28,8 +28,15 @@
                 </form>
             </div>
         </div>
-        <?=$this->pagination->create_links()?>
-        <table class="table">
+        
+        <!-- Скрипт для пагинации -->
+        <script>
+            $(document).ready(function () {
+            $('#product').DataTable();
+        });
+        </script>
+
+        <table id="product" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th scope="col">Номер заказа</th>
