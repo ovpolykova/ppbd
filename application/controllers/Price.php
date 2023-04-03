@@ -57,10 +57,10 @@
             $data['product'] = $this->price_m->sel_product($config['per_page'], $this->uri->segment(3));
         }
 
-        $data['type_t']  = $this->price_m->sel_type_t();
-        $data['valuta']  = $this->price_m->sel_valuta();
-        $data['price']   = $this->price_m->sel_price();
-        $data['group']   = $this->price_m->sel_group();
+        $data['type_t'] = $this->price_m->sel_type_t();
+        $data['valuta'] = $this->price_m->sel_valuta();
+        $data['price']  = $this->price_m->sel_price();
+        $data['group']  = $this->price_m->sel_group();
 
         //Сессия
         $data['filter']  = $this->session->userdata('filter');
