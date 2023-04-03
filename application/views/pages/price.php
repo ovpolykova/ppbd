@@ -111,12 +111,12 @@
                                     <?php foreach ($price as $row1) { 
                                         if ($row1['ID_product']==$row['ID_product']) {?>
                                         <input type="hidden" name=<?="value".$a++?> value="<?=$row1['ID_list']?>">
-                                        <div class="row">
+                                        <div class="row align-items-end">
                                             <div class="col-md-4"> 
                                                 <label for="" class="form-label"></label>
                                                 <input type="text" class="form-control" placeholder="<?=$row1['type_t']?>" readonly>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="" class="form-label"></label>
                                                 <select class="form-select" name="<?="value".$a++?>">
                                                     <option value="<?=$row1['ID_valuta']?>" selected><?=$row1['valuta']?></option>
@@ -127,9 +127,12 @@
 
                                                 </select>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="" class="form-label"></label>
                                                 <input type="number" class="form-control" name="<?="value".$a++?>" min="0" step="0.01" value="<?=$row1['price']?>">      
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="<?=base_url('price/del_price?ID_list='.$row1['ID_list'])?>" class="btn btn-danger"><- Удалить</a>
                                             </div>
                                         </div>
                                     <?php } 

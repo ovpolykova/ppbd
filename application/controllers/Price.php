@@ -112,7 +112,7 @@
     public function del_price()
 	{
         $data = array(
-            'ID_list' => $this->input->post('ID_list')
+            'ID_list' => $_GET['ID_list']
         );
 
         $this->load->model('price_m');
