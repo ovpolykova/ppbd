@@ -17,7 +17,6 @@
     {
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
-        $this->load->model('contract_m');
 
         //Пагинация
         $this->load->library('pagination');
@@ -61,8 +60,6 @@
             $date_c     = $this->input->post('date_c');
             $inn        = $this->input->post('inn');
             $kpp        = $this->input->post('kpp');
-            $login      = $this->input->post('login');
-            $password   = $this->input->post('password');
 
             $data = array(
                 'contractor' => $contractor,
@@ -70,9 +67,7 @@
                 'address_c'  => $address_c,
                 'date_c'     => $date_c,
                 'inn'        => $inn,
-                'kpp'        => $kpp,
-                'login'      => $login,
-                'password'   => $password
+                'kpp'        => $kpp
             );
             
             $this->load->model('contract_m');
@@ -91,11 +86,9 @@
         $date_c     = $this->input->post('date_c');
         $inn        = $this->input->post('inn');
         $kpp        = $this->input->post('kpp');
-        $login      = $this->input->post('login');
-        $password   = $this->input->post('password');
         $id         = $this->input->post('ID_contract');
         $this->load->model('contract_m');
-        $this->contract_m->upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id, $login, $password);
+        $this->contract_m->upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id);
 
         redirect('contract/browse_contract_admin');
     }

@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-12" style="text-align: center; margin-top: 10px;">
                     <button type="submit" class="btn btn-primary">Найти</button>
-                    <a href="<?=base_url('report/browse_rep_order_product')?>" class="btn btn-danger">Очистить</a>
+                    <a href="<?=base_url('rep_order_product/browse_rep_order_product')?>" class="btn btn-danger">Очистить</a>
                 </div>
                 </form>
             </div>
@@ -39,12 +39,9 @@
         <table id="product" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th scope="col">Номер заказа</th>
+                    <th scope="col">№</th>
                     <th scope="col">Наименование товара</th>
-                    <th scope="col">Дата заказа</th>
-                    <th scope="col">Дата отправки</th>
                     <th scope="col">Общая сумма</th>
-                    <th scope="col">Статус</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,10 +49,7 @@
                 <tr>
                     <th scope="row"><?=$row['ID_order']?></th>
                     <td><?=$row['name_product']?></td>
-                    <td><?=$row['date_order']?></td>
-                    <td><?=$row['date_send']?></td>
                     <td><?=$row['SUM(price*count)']?></td>
-                    <td><?=$row['status']?></td>
                 </tr>
                 <?php }?>
             </tbody>
