@@ -36,6 +36,5 @@
         $this->load->view('pages/order_del_otch', $data);
         $this->load->view('templates/footer');
 	}
-
-
+    
 }

@@ -47,7 +47,7 @@ class Report_m extends CI_Model {
     public function sel_rep_order_fall($date1, $date2)
     {
         $query = $this->db->select('*')
-                 ->from('orders o, contract c')
+                 ->from('order o, contract c')
                  ->where('o.ID_contract=c.ID_contract')
                  ->where('(date_send-date_order)>5')
                  ->where("date_send BETWEEN '$date1' AND '$date2'")

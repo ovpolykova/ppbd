@@ -14,12 +14,20 @@
             </form>
         </div>
         <div class="col-9">
-            
-            <table class="table">
+
+            <!-- Скрипт для пагинации -->
+            <script>
+                $(document).ready(function () {
+                $('#price_list').DataTable();
+            });
+            </script>
+
+            <table id="price_list" class="table">
                 <thead>
                     <tr>
                         <th scope="col">№</th>
                         <th scope="col">Тип прайс-листа</th>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
