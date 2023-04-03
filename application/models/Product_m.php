@@ -38,4 +38,16 @@ class Product_m extends CI_Model {
                           ->get();
         return $query->result_array();
     }
+
+    //Добавление товара|Кузнецов
+    public function add_product($data)
+    {
+        $this->db->insert('product', $data);
+    }
+
+    //Удаление товара|Кузнецов
+    public function del_product($ID_product)
+    {
+        $this->db->delete('product', $ID_product);
+    }
 }
