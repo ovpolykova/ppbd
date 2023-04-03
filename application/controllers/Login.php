@@ -16,31 +16,51 @@
         $login = $this->input->post('login');
         $password = $this->input->post('password');
 
-        $this->load->model('user_m');
-        $result = $this->user_m->sel_user($login, $password);
+        if ($this->input->post('contractor') != NULL) {
+            $this->load->model('user_m');
+            $result = $this->user_m->sel_contractor($login, $password);
+        } else {
+            $this->load->model('user_m');
+            $result = $this->user_m->sel_user($login, $password);
+        }
+
 
         if($result != false)
         {
-            $ID_user = $result->ID_user;
-            $fio = $result->fio;
-            $role = $result->role;
+            if ($this->input->post('contractor') != NULL) {
+                //Контрагент
+                $ID_contract = $result->ID_contract;
+                $contractor = $result->contractor;
 
-            $session = array(
-                'ID_user' => $ID_user,
-                'fio' => $fio,
-                'role' => $role
-            );
+                $session = array(
+                    'ID_contract' => $ID_contract,
+                    'contractor' => $contractor
+                );
 
-            $this->session->set_userdata('login_session', $session);
+                $this->session->set_userdata('login_session', $session);
 
-            switch($role)
-            {
-                case 'Администратор': redirect((base_url('product/browse_product'))); 
-                break;
-                case 'Оператор': redirect(base_url('contract/browse_contract'));
-                break;
-                case 'Контрагент': redirect(base_url(('main/index'))); 
-                break;
+                redirect(base_url('main/product'));
+            } else {
+                //Пользователь
+                $ID_user = $result->ID_user;
+                $fio = $result->fio;
+                $role = $result->role;
+
+                $session = array(
+                    'ID_user' => $ID_user,
+                    'fio' => $fio,
+                    'role' => $role
+                );
+
+                $this->session->set_userdata('login_session', $session);
+
+                switch($role)
+                {
+                    case 'Администратор': redirect((base_url('product/browse_product'))); 
+                    break;
+                    case 'Оператор': redirect(base_url('contract/browse_contract'));
+                    break;
+                }
             }
         }
         else

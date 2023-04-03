@@ -23,6 +23,23 @@ class User_m extends CI_Model {
         
     }
 
+    //Выбрать контрагент|Харламов
+    public function sel_contractor($login, $password)
+    {
+        $sql = "SELECT * FROM contract WHERE login='$login' AND password='$password'";
+        $query = $this->db->query($sql);
+        
+        if($query->num_rows()==1)
+        {
+            return $query->row();
+        }
+        else 
+        {
+            return false;
+        }
+        
+    }
+
     //Добавить пользователя|Пручковский
     public function add_user($data)
     {
