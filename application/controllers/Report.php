@@ -8,6 +8,7 @@
 		$data['session'] = $this->session->userdata('login_session');
         $this->load->model('report_m');
 
+        //Фильтр по дате
         $date1 = "2000-01-01";
         $date2 = "2100-01-01";
 
@@ -56,6 +57,7 @@
         $data['session'] = $this->session->userdata('login_session');
         $this->load->model('report_m');
 
+        //Фильтр по дате
         $date1 = "2000-01-01";
         $date2 = "2100-01-01";
 
@@ -104,6 +106,7 @@
 		$data['session'] = $this->session->userdata('login_session');
         $this->load->model('report_m');
 
+        //Фильтр по дате
         $date1 = "2000-01-01";
         $date2 = "2100-01-01";
 
