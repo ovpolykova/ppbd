@@ -92,6 +92,8 @@
                     <th scope="col">Дата договора</th>
                     <th scope="col">ИНН</th>
                     <th scope="col">КПП</th>
+                    <th scope="col">Логин</th>
+                    <th scope="col">Пароль</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -106,6 +108,8 @@
                     <td><?=$row['date_c']?></td>
                     <td><?=$row['inn']?></td>
                     <td><?=$row['kpp']?></td>
+                    <td><?=$row['login']?></td>
+                    <td><?=$row['password']?></td>
                     <td>
 
                     <!-- Триггер -->
