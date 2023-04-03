@@ -1,91 +1,64 @@
-<!-- Страница товара (для администратора)|Кузнецов -->
+<!-- Страница товара (для контрагента)|Волобуев -->
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">№</th>
-                <th scope="col">Товар</th>
-                <th scope="col"></th>
-                <!-- <th scope="col"></th> -->
-            </tr>
-        </thead>
-        <tbody>
 
-            <?php foreach ($product as $row)
-            { ?>
-            <tr>
-                <th scope="row"><?=$row['ID_product']?></th>
-                <td><?=$row['name_product']?></td>
-                <td>
-                    <!-- Триггер -->
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_product']?>">Изменить цену</button>
-                    <!-- Модальное окно -->
-                    <div class="modal fade" id="<?=$row['ID_product']?>" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <form action="<?=base_url('product/upd_price_product')?>" method="post">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Изменить цену №<?=$row['ID_product']?> товара к прайс-листу</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+    <!-- Список товаров 
+    <div class="col-md-3">
+        <form action="<?=base_url('product/browse_product')?>" method="GET">
+            <div class="card shadow mt-3">
+                <div class="card-header">
+                    <h5>Фильтр
+                        <button type="submit" class="btn btn-primary btn-sm float-end">Найти</button>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <h6>Группа товаров</h6>
+                    <hr>
+                    <?php
+                        
+                        if(($result)> 0)
+                        {
+                            foreach($result as $row)
+                            {
+                                $checked = [];
+                                if(isset($_GET['`group`']))
+                                {
+                                    $checked = $_GET['`group`'];
+                                }
+                                ?>
+                                    <div>
+                                        <input type="checkbox" name="`group`[]" value="<?= $row['ID_group']; ?>" 
+                                            <?php if(in_array($row['ID_group'], $checked)){ echo "checked"; } ?>>
+                                            
+                                        <?= $row['name_g']; ?>
                                     </div>
-                                    
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-4">Тип прайс-листа</div>
-                                            <div class="col-4">Валюта</div>
-                                            <div class="col-4">Цена</div>
-                                        </div>
-                                        <?php $a = 1; $b = 0;?>
-                                        <?php foreach ($price as $row1) { 
-                                            if ($row1['ID_product']==$row['ID_product']) {
-                                                $b++;?>
-                                            <input type="hidden" name=<?="value".$a++?> value="<?=$row1['ID_list']?>">
-                                            <div class="row">
-                                                <div class="col-md-4"> 
-                                                    <label for="" class="form-label"></label>
-                                                    <input type="text" class="form-control" placeholder="<?=$row1['type_t']?>" readonly>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="" class="form-label"></label>
-                                                    <select class="form-select" name="<?="value".$a++?>">
-                                                        <option value="<?=$row1['ID_valuta']?>" selected><?=$row1['valuta']?></option>
-
-                                                        <?php foreach ($valuta as $row2) {?>
-                                                        <option value="<?=$row2['ID_valuta']?>"><?=$row2['valuta']?></option>
-                                                        <?php }?>
-
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="" class="form-label"></label>
-                                                    <input type="number" class="form-control" name="<?="value".$a++?>" min="0" step="0.01" value="<?=$row1['price']?>">      
-                                                </div>
-                                            </div>
-                                        <?php } 
-                                        }?>  
-                                    </div>
-                                    
-                                    <input type="hidden" name="count_list" value="<?=$b?>">
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <!-- <td>
-                    <form action="<?=base_url('product/del_product')?>" method="post">
-                        <button class="btn btn-outline-danger" name="ID_product" value="<?=$row['ID_product']?>">Удалить</button></td>
-                    </form>
-                </td> -->
-            </tr>
-            <?php }?>
-            
-        </tbody>
-
-
-    </table>
+                                <?php
+                            }
+                        }
+                        else
+                        {
+                            echo "Никаких брендов не найдено";
+                        }
+                    ?>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div> -->
+    
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <?php foreach($result as $row)
+    { ?>
+        <div class="col">
+            <div class="card text-center h-100">
+            <img src="/assets/img/<?=$row['image']?>" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title"><?=$row['name_product']?></h5>
+                <p class="card-text"><?=$row['price']?> <?=$row['valuta']?></p>
+                <a href="<?=base_url('order/browse_product_zakaz?ID_list='.$row['ID_list'])?>" class="btn btn-primary">Купить</a>
+            </div>
+            </div>
+        </div>
+    <?php }?>
+    </div>
+    
 </div>

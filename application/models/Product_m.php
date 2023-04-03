@@ -38,4 +38,26 @@ class Product_m extends CI_Model {
                           ->get();
         return $query->result_array();
     }
+
+    //Список товара|Волобуев
+    public function sel_product_group()
+    {
+        $query = $this->db->select('*')
+                          ->from('group')
+                          ->get();
+        return $query->result_array();
+    }
+
+    //Список товара|Волобуев
+    public function sel_product_card()
+    {
+        $query = $this->db->select('*')
+                          ->from('price_list, product, valuta')
+                          ->where('price_list.ID_product=product.ID_product')
+                          ->where('price_list.ID_valuta=valuta.ID_valuta')
+                          ->get();
+        return $query->result_array();
+    }
+
+    
 }

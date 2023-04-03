@@ -39,7 +39,7 @@
                 break;
                 case 'Оператор': redirect(base_url('contract/browse_contract'));
                 break;
-                case 'Контрагент': redirect(base_url(('main/index'))); 
+                case 'Контрагент': redirect(base_url(('product/browse_product'))); 
                 break;
             }
         }

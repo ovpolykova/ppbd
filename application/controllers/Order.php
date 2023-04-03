@@ -37,5 +37,49 @@
         $this->load->view('templates/footer');
 	}
 
+    //Просмотр товаров|Волобуев
+    public function browse_product_zakaz()
+    {
+        $this->load->model('order_m');
 
+        //Сессия
+		$data['session'] = $this->session->userdata('login_session');
+        $data['contract'] = $this->order_m->sel_contract();
+
+        $ID_list = $_GET['ID_list'];
+
+        $ID_user = $this->session->userdata('login_session');
+        $data['order'] = $this->order_m->sel_order_2($ID_user['ID_user']);
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar_contragent', $data);
+        $this->load->view('pages/moizakaz', $data);
+        $this->load->view('templates/footer');
+    }
+
+    //Добавление заказа|Волобуев
+    public function add_order()
+    {
+        $this->load->model('order_m');
+        
+        $data['session'] = $this->session->userdata('login_session');
+        $data['contract'] = $this->order_m->sel_contract();
+        
+        $ID_user = $this->session->userdata('login_session');
+        $data['order'] = $this->order_m->sel_order_2($ID_user['ID_user']);
+        
+        $ID_contract = $this->input->post('contract');
+        $count = $this->input->post('col');
+        $ID_list = $_GET['ID_list'];
+        
+        $this->load->model('contract_m');
+        $this->contract_m->add_contract($ID_user, $ID_contract, $ID_list, $count);
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar_contragent', $data);
+        $this->load->view('pages/moizakaz', $data);
+        $this->load->view('templates/footer');
+
+        redirect(base_url('order/browse_product_zakaz'));
+    }
 }
