@@ -1,9 +1,9 @@
 <?php
-	class Price extends CI_Controller {
+    class Price extends CI_Controller {
 
     //Просмотр прайс-листов|Кузнецов
-	public function browse_price()
-	{
+    public function browse_price()
+    {
         $this->load->model('price_m');
         $this->load->library('pagination');
 
@@ -70,11 +70,11 @@
         $this->load->view('templates/navbar_admin', $data);
         $this->load->view('pages/price', $data);
         $this->load->view('templates/footer');
-	}
+    }
 
     //Добавление прайс-листа|Кузнецов
     public function add_price()
-	{
+    {
         if (!empty($_POST))
         {
             $data = array(
@@ -89,11 +89,11 @@
             
             redirect('price/browse_price');
         }
-	}
+    }
 
     //Изменение прайс-листа|Кузнецов
     public function upd_price()
-	{
+    {
         $data = array(
             'ID_product' => $this->input->post('ID_product'),
             'ID_type_t'  => $this->input->post('ID_type_t'),
@@ -106,11 +106,11 @@
         $this->price_m->upd_price($data, $id);
 
         redirect('price/browse_price');
-	}
+    }
 
     //Удаление прайс-листа|Кузнецов
     public function del_price()
-	{
+    {
         $data = array(
             'ID_list' => $_GET['ID_list']
         );
@@ -119,11 +119,11 @@
         $this->price_m->del_price($data);
 
         redirect('price/browse_price');
-	}
+    }
     
     //Изменение цены товара с привязкой к определенному прайс-листу|Кузнецов
     public function upd_price_product()
-	{
+    {
         $a = 1;
         
         for ($i=1; $i <= $this->input->post('count_list'); $i++) { 
@@ -136,5 +136,5 @@
         }
 
         redirect('price/browse_price');
-	}
+    }
 }
