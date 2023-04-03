@@ -17,7 +17,7 @@
                 </button>
 
                 <!-- Модальное окно -->
-                <div class="modal fade" id="modalAdd1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
+                <div class="modal fade" id="modalAdd1" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -55,6 +55,14 @@
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
                                         <input type="text" class="form-control" name="kpp" placeholder="КПП" required>
                                     </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="login" placeholder="Логин" required>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="password" placeholder="Пароль" required>
+                                    </div>
 
                                 </div>
                             </div>
@@ -74,7 +82,15 @@
 
 <div class="container">
     <div class="container-fluid" style="margin-top:20px">
-        <table class="table">
+    
+        <!-- Скрипт для пагинации -->
+        <script>
+            $(document).ready(function () {
+            $('#contract').DataTable();
+        });
+        </script>
+
+        <table id="contract" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th scope="col">№</th>
@@ -84,6 +100,8 @@
                     <th scope="col">Дата договора</th>
                     <th scope="col">ИНН</th>
                     <th scope="col">КПП</th>
+                    <th scope="col">Логин</th>
+                    <th scope="col">Пароль</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -98,6 +116,8 @@
                     <td><?=$row['date_c']?></td>
                     <td><?=$row['inn']?></td>
                     <td><?=$row['kpp']?></td>
+                    <td><?=$row['login']?></td>
+                    <td><?=$row['password']?></td>
                     <td>
 
                     <!-- Триггер -->
@@ -106,7 +126,7 @@
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="<?=$row['ID_contract']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_contract']?>" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form action="<?=base_url('contract/upd_contract')?>" method="post">
@@ -147,6 +167,14 @@
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
                                         <input type="text" class="form-control" name="kpp" placeholder="КПП" required value="<?=$row['kpp']?>">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="login" placeholder="Логин" value="<?=$row['login']?>" required>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="password" placeholder="Пароль" value="<?=$row['password']?>" required>
                                     </div>
 
                                     </div>

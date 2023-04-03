@@ -6,15 +6,39 @@ class Contract_m extends CI_Model {
         $this->load->database();
     }
 
+    //Выбрать контрагента|Харламов
+    public function sel_user($login, $password)
+    {
+        $sql = "SELECT * FROM `contract` WHERE login='$login' AND password='$password'";
+        $query = $this->db->query($sql);
+        
+        if($query->num_rows()==1)
+        {
+            return $query->row();
+        }
+        else 
+        {
+            return false;
+        }
+        
+    }
+
     //Выбрать контрагента|Пручковский
     public function sel_contract()
     {
-        $query = $this->db->select('ID_contract, contractor, type_c, address_c, date_c, inn, kpp')
+        $query = $this->db->select('ID_contract, contractor, type_c, address_c, date_c, inn, kpp, login, password')
                           ->from('contract, type_c')
                           ->where('contract.ID_type_c = type_c.ID_type_c')
                           ->order_by('ID_contract')
                           ->get();
         return $query->result_array();
+    }
+
+    //Получение количества для пагинации контрагента|Пручковский
+    public function getTotalRows()
+    {
+        $query = $this->db->get('contract');
+        return $query->num_rows();
     }
 
     //Добавить контрагента|Пручковский
@@ -24,7 +48,7 @@ class Contract_m extends CI_Model {
     }
 
     //Изменить контрагента|Пручковский
-    public function upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id)
+    public function upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id, $login, $password)
     {
         $this->db->set('contractor', $contractor)
                  ->set('ID_type_c', $ID_type_c)
@@ -32,6 +56,8 @@ class Contract_m extends CI_Model {
                  ->set('date_c', $date_c)
                  ->set('inn', $inn)
                  ->set('kpp', $kpp)
+                 ->set('login', $login)
+                 ->set('password', $password)
                  ->where('ID_contract', $id)
                  ->update('contract');
     }
@@ -41,4 +67,5 @@ class Contract_m extends CI_Model {
     {
         $this->db->delete('contract', $data);
     }
+
 }

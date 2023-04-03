@@ -12,13 +12,13 @@
         $this->load->library('pagination');
 
         $config['base_url'] = base_url('user/browse_user');
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
         $config['total_rows'] = $this->user_m->getTotalRows();
 
         //Стиль пагинации
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
-        $config['next_tag_open'] = '<li class="page-item">';
+        $config['next_tag_open'] = '<li class="page-item ">';
         $config['next_tag_close'] = '</li>';
         $config['prev_tag_open'] = '<li class="page-item">';
         $config['prev_tag_close'] = '</li>';

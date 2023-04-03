@@ -23,6 +23,20 @@ class User_m extends CI_Model {
         
     }
 
+    //Выбрать пользователя для таблиц|Пручковский
+    public function sel_user_table()
+    {
+        $query = $this->db->get('users');
+        return $query->result_array();
+    }
+
+    //Получение количества для пагинации пользователя|Пручковский
+    public function getTotalRows()
+    {
+        $query = $this->db->get('users');
+        return $query->num_rows();
+    }
+
     //Добавить пользователя|Пручковский
     public function add_user($data)
     {
@@ -52,18 +66,4 @@ class User_m extends CI_Model {
         $this->session->sess_destroy();
     }
 
-    //Выбрать пользователя для таблиц|Пручковский
-    public function sel_user_table($limit, $offset)
-    {
-        $this->db->limit($limit, $offset);
-        $query = $this->db->get('users');
-        return $query->result_array();
-    }
-
-    //Получение количества для пагинации пользователя
-    public function getTotalRows()
-    {
-        $query = $this->db->get('users');
-        return $query->num_rows();
-    }
 }
