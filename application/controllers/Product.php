@@ -7,11 +7,8 @@
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
 
-        $this->load->model('product_m');
-        $data['product'] = $this->product_m->sel_product();
         $this->load->model('price_m');
-        $data['price'] = $this->price_m->sel_price();
-        $data['valuta'] = $this->price_m->sel_valuta();
+        $data['type_t'] = $this->price_m->sel_type_t();
         
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_admin', $data);

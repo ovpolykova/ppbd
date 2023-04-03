@@ -17,7 +17,7 @@
                 </button>
 
                 <!-- Модальное окно -->
-                <div class="modal fade" id="modalAdd1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
+                <div class="modal fade" id="modalAdd1" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -71,6 +71,7 @@
 
 <div class="container">
     <div class="container-fluid" style="margin-top:20px">
+        <?=$this->pagination->create_links()?>
         <table class="table">
             <thead>
                 <tr>
@@ -99,7 +100,7 @@
                     </button>
 
                     <!-- Модальное окно -->
-                    <div class="modal fade" id="<?=$row['ID_user']?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
+                    <div class="modal fade" id="<?=$row['ID_user']?>" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAddLabel2" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form action="<?=base_url('user/upd_user')?>" method="post">
@@ -112,7 +113,7 @@
 
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
-                                            <input type="text" class="form-control" name="ID_user" placeholder="ФИО" required value="<?=$row['ID_user']?>">
+                                            <input type="text" class="form-control" name="ID_user" required value="<?=$row['ID_user']?>">
                                         </div>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>

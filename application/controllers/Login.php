@@ -13,41 +13,71 @@
     //Выполнение входа|Харламов
     public function log_action()
 	{
-        $login = $this->input->post('login');
+        if (!empty($_POST['contractor']))
+        {
+            $login = $this->input->post('login');
         $password = $this->input->post('password');
 
-        $this->load->model('user_m');
-        $result = $this->user_m->sel_user($login, $password);
+        $this->load->model('contract_m');
+        $result = $this->contract_m->sel_user($login, $password);
 
         if($result != false)
         {
-            $ID_user = $result->ID_user;
-            $fio = $result->fio;
-            $role = $result->role;
+            $ID_contract = $result->ID_contract;
+            $contractor = $result->contractor;
 
             $session = array(
-                'ID_user' => $ID_user,
-                'fio' => $fio,
-                'role' => $role
+                'ID_contract' => $ID_contract,
+                'contractor' => $contractor,
             );
 
             $this->session->set_userdata('login_session', $session);
-
-            switch($role)
-            {
-                case 'Администратор': redirect((base_url('product/browse_product'))); 
-                break;
-                case 'Оператор': redirect(base_url('contract/browse_contract'));
-                break;
-                case 'Контрагент': redirect(base_url(('product/browse_product'))); 
-                break;
-            }
+            redirect(base_url('login/index'));
         }
         else
         {
             $this->session->set_flashdata('login_false', 'Неверный логин или пароль!');
             redirect(base_url('login/index'));
         }
+        }
+        else
+        {
+            $login = $this->input->post('login');
+            $password = $this->input->post('password');
+    
+            $this->load->model('user_m');
+            $result = $this->user_m->sel_user($login, $password);
+    
+            if($result != false)
+            {
+                $ID_user = $result->ID_user;
+                $fio = $result->fio;
+                $role = $result->role;
+    
+                $session = array(
+                    'ID_user' => $ID_user,
+                    'fio' => $fio,
+                    'role' => $role
+                );
+    
+                $this->session->set_userdata('login_session', $session);
+    
+                switch($role)
+                {
+                    case 'Администратор': redirect((base_url('product/browse_product'))); 
+                    break;
+                    case 'Оператор': redirect(base_url('contract/browse_contract'));
+                    break;
+                    case 'Контрагент': redirect(base_url(('main/index'))); 
+                    break;
+                }
+            }
+            else
+            {
+                $this->session->set_flashdata('login_false', 'Неверный логин или пароль!');
+                redirect(base_url('login/index'));
+            }
+        }
+        
 	}
-
 }

@@ -1,22 +1,88 @@
 <!-- Страница прайс-листа (для администратора) с модал. окна – добавить прайс-лист|Кузнецов -->
 <div class="container">
-    <h1 class="display-3 text-center mb-5">Прайс-лист</h1>
+    <h1 class="display-3 text-center mb-5">Товары с указанием цены</h1>
+    
     <div class="row">
 
     <div class="col-2">
-        <h3 class="text-center">Фильтр</h3>
-        <form action="<?=base_url('price/browse_price')?>">
-            <input type="hidden" name="filter" value="1">
-            <?php foreach($group as $row) {?>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="<?=$row['ID_group']?>">
-                <label class="form-check-label" for="<?=$row['ID_group']?>"><?=$row['name_g']?></label>
+        <div class="text-center">
+            <!-- Кнопка-триггер модального окна -->
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Добавить новый товар
+            </button>
+            <!-- Модальное окно -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <form action="<?=base_url('product/add_product')?>" method="post">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление нового товара</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            <div class="mb-3">
+                                <label for="name_product" class="form-label">Наименование товара</label>
+                                <input type="text" class="form-control" name="name_product" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="mb-3">
+                                        <label for="ID_group" class="form-label">Группа</label>
+                                        <select class="form-select" name="ID_group">
+                                            <?php foreach($group as $row) {?>
+                                            <option value="<?=$row['ID_group']?>"><?=$row['name_g']?></option>
+                                            <?php }?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="mb-3">
+                                        <label for="unit" class="form-label">Единица</label>
+                                        <input type="text" class="form-control" name="unit" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Описание</label>
+                                <textarea class="form-control" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Изображение</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
             </div>
-            <?php }?>
+        </div>
+        <h3 class="text-center">Фильтр</h3>
+        <form action="<?=base_url('price/browse_price')?>" method="post">
+            <?php $c = 0;
+                foreach($group as $row) {
+                if (isset($filter[$c++]) != NULL) {?>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label" for="<?=$row['ID_group']?>"><?=$row['name_g']?></label>
+                        <input class="form-check-input" type="checkbox" name="<?=$row['ID_group']?>" value="<?=$row['ID_group']?>" checked>
+                    </div>
+                <?php } else {?>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label" for="<?=$row['ID_group']?>"><?=$row['name_g']?></label>
+                        <input class="form-check-input" type="checkbox" name="<?=$row['ID_group']?>" value="<?=$row['ID_group']?>">
+                    </div>
+                <?php }
+             }?>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary mb-3">Поиск</button><br>
-                <a href="<?=base_url('price/browse_price')?>" class="btn btn-danger">Очистить</a>
             </div>
+            
+            <!-- НУЖНО ДЛЯ РАБОТЫ ПАГИНАЦИИ И ФИЛЬТРА! -->
+            <input type="hidden" name="true" value="true">
+
         </form>
     </div>
 
@@ -27,11 +93,11 @@
                 $b++;?>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?=$b?>" aria-expanded="false" aria-controls="collapseThree">
-                            <?=$row['name_product']?>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?=$b?>">
+                            <span class="badge bg-primary">Группа: <?=$row['name_g']?></span><?=$row['name_product']?>
                         </button>
                     </h2>
-                    <div id="<?=$b?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div id="<?=$b?>" class="accordion-collapse collapse">
                         <div class="accordion-body">
                             
                             <form action="<?=base_url('price/upd_price_product')?>" method="post">
@@ -45,12 +111,12 @@
                                     <?php foreach ($price as $row1) { 
                                         if ($row1['ID_product']==$row['ID_product']) {?>
                                         <input type="hidden" name=<?="value".$a++?> value="<?=$row1['ID_list']?>">
-                                        <div class="row">
+                                        <div class="row align-items-end">
                                             <div class="col-md-4"> 
                                                 <label for="" class="form-label"></label>
                                                 <input type="text" class="form-control" placeholder="<?=$row1['type_t']?>" readonly>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="" class="form-label"></label>
                                                 <select class="form-select" name="<?="value".$a++?>">
                                                     <option value="<?=$row1['ID_valuta']?>" selected><?=$row1['valuta']?></option>
@@ -61,9 +127,12 @@
 
                                                 </select>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="" class="form-label"></label>
                                                 <input type="number" class="form-control" name="<?="value".$a++?>" min="0" step="0.01" value="<?=$row1['price']?>">      
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="<?=base_url('price/del_price?ID_list='.$row1['ID_list'])?>" class="btn btn-danger"><- Удалить</a>
                                             </div>
                                         </div>
                                     <?php } 
@@ -73,15 +142,16 @@
                                 <br>
 
                                 <div class="text-end">
-                                    <!-- Кнопка-триггер модального окна -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<?=$b?>">
-                                        Добавить тип прайс-листа
-                                    </button>
-
-                                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                <!-- Кнопка-триггер модального окна -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<?=$b?>">
+                                    Добавить тип прайс-листа
+                                </button>
+                        
+                                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                            
+                                    <a href="<?=base_url('product/del_product?ID_product='.$row['ID_product'])?>" type="button" class="btn btn-danger">Удалить товар</a>
                                 </div>
-
-                            </form>
+                                </form>
                                 <!-- Модальное окно -->
                                 <form action="<?=base_url('price/add_price')?>" method="post">
                                     <div class="modal fade" id="modal<?=$b?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -140,6 +210,9 @@
                     </div>
                 </div>
             <?php }?>
+        </div>
+        <div class="mt-3">
+            <?=$this->pagination->create_links()?>
         </div>
     </div>
     </div>
