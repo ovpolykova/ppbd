@@ -2,12 +2,16 @@
     <div class="row">
         <div class=""></div>
         <div class="col-lg-12">
-
-        <table class="table table-striped table-hover">
+<!-- Скрипт для пагинации -->
+<script>
+        $(document).ready(function () {
+        $('#zak').DataTable();
+    });
+    </script>
+        <table id="zak" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">№</th>
-                <th scope="col">ФИО</th>
                 <th scope="col">Наименование контрагент</th>
                 <th scope="col">Наименование продукт</th>
                 <th scope="col">Количество</th>
@@ -21,7 +25,6 @@
         <?php foreach ($browesorder as $row) {?>
             <tr>
                 <th scope="row"><?=$row['ID_order']?></th>
-                <td><?=$row['fio']?></td>
                 <td><?=$row['contractor']?></td>
                 <td><?=$row['name_product']?></td>
                 <td><?=$row['count']?></td>
