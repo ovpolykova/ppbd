@@ -3,11 +3,12 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
 <!-- Фильтры -->
-<form class="row gy-2 gx-3 align-items-center">
+<form class="row gy-2 gx-3 align-items-center" action="" method="post">
     <div class="col-sm-3">
-    <select class="form-select" id="autoSizingSelect">
-      <option value="">Choose...</option>
-      <option value="1">One</option>
+    <select class="form-select" name="ID_contract">
+        <?php foreach ($contragent as $row) {?>
+      <option value="<?=$row['ID_contract']?>"><?=$row['contractor']?></option>
+      <?php }?>
     </select>
   </div>
   
@@ -16,6 +17,7 @@
   </div>
 </form>
 <br>
+<hr>
 
  <!-- Скрипт для пагинации -->
  <script>

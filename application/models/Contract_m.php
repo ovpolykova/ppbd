@@ -30,6 +30,24 @@ class Contract_m extends CI_Model {
         return $query->result_array();
     }
 
+    //Выбрать контрагент|Харламов
+    public function sel_contragent()
+    {
+        $query = $this->db->get('contract');
+        return  $query->result_array();
+    }
+
+    //Выбрать контрагент с фильтром|Харламов
+    public function sel_contract_zak_filter($data_filter)
+    {
+        $query = $this->db->select('*')
+                          ->from('order, contract')
+                          ->where('order.ID_contract = contract.ID_contract')
+                          ->where('order.ID_contract', $data_filter)
+                          ->order_by('contractor')
+                          ->get();
+        return $query->result_array();
+    }
 
     //Добавить контрагента|Пручковский
     public function add_contract($data)
