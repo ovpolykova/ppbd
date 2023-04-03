@@ -62,8 +62,9 @@ class Report_m extends CI_Model {
     }
 
     //Выбрать заказ, не выполненных в срок за период|Кузнецов
-    public function sel_rep_order_fall($date1, $date2)
+    public function sel_rep_order_fall($date1, $date2, $limit, $offset)
     {
+        $this->db->limit($limit, $offset);
         $query = $this->db->select('*')
                  ->from('order o, contract c')
                  ->where('o.ID_contract=c.ID_contract')
@@ -71,5 +72,12 @@ class Report_m extends CI_Model {
                  ->where("date_send BETWEEN '$date1' AND '$date2'")
                  ->get();
         return $query->result_array(); 
+    }
+
+    //Получение количества для пагинации товара|Кузнецов
+    public function getTotalRows_fall()
+    {
+        $query = $this->db->get('`order`');
+        return $query->num_rows();
     }
 }
