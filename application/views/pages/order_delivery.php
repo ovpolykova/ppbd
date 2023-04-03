@@ -8,7 +8,6 @@
             <tr>
                 <th scope="col">№</th>
                 <th scope="col">ФИО</th>
-                <th scope="col">Производство</th>
                 <th scope="col">Наименование контрагент</th>
                 <th scope="col">Наименование продукт</th>
                 <th scope="col">Количество</th>
@@ -23,7 +22,6 @@
             <tr>
                 <th scope="row"><?=$row['ID_order']?></th>
                 <td><?=$row['fio']?></td>
-                <td><?=$row['name_p']?></td>
                 <td><?=$row['contractor']?></td>
                 <td><?=$row['name_product']?></td>
                 <td><?=$row['count']?></td>
