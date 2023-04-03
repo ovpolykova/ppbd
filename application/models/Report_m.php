@@ -74,7 +74,7 @@ class Report_m extends CI_Model {
         return $query->result_array(); 
     }
 
-    //Получение количества для пагинации товара|Кузнецов
+    //Получение количества для пагинации не выполненных в срок за период|Кузнецов
     public function getTotalRows_fall()
     {
         $query = $this->db->get('`order`');
