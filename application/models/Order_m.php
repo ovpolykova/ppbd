@@ -34,7 +34,6 @@ class Order_m extends CI_Model {
                 ->update('order');
     }
 
-<<<<<<< HEAD
     //Добавить заказ|Волобуев
     public function add_order($ID_contract, $ID_list, $count)
     {
@@ -53,7 +52,6 @@ class Order_m extends CI_Model {
                           ->get('order, price_list, product, valuta');
         return $query->result_array();
     }
-=======
 
       //Выбрать контрагент с фильтром|Харламов
       public function sel_zak_filter_ord($data_filter)
@@ -75,14 +73,4 @@ class Order_m extends CI_Model {
                 $query = $this->db->get('contract');
         return $query->result_array();
       }
-
-
-  
-    
-
-   
-      
-
-    
->>>>>>> fb11debf36b86f256d6ae464f4a28cc0abec2598
 }
