@@ -2,13 +2,47 @@
     <div class="row">
         <div class=""></div>
         <div class="col-lg-12">
+       <h2>Фильтры:</h2>
+<form class="row g-3" method="post" action="">
+  <div class="col-md-3">
+    <label for="conts" class="form-label">по контрагенту</label>
+    <select id="conts"  name="ID_contract" class="form-select">
+   
+    <?php foreach ($cont as $row) {?>
+      <option value="<?=$row['ID_contract']?>"><?=$row['contractor']?></option>
+      <?php }?>
 
-        <table class="table table-striped table-hover">
+
+    </select>
+  </div>
+
+
+
+
+  <div class="col-4" style="margin-top: 3%;">
+ 
+    <button type="submit" class="btn btn-primary" >Поиск</button>
+    <a href="<?=base_url('order/browes_order')?>" class="btn btn-danger">Очистить</a>
+  </div>
+</form>
+
+
+<br>
+<hr>
+
+
+
+
+<!-- Скрипт для пагинации -->
+<script>
+        $(document).ready(function () {
+        $('#zak').DataTable();
+    });
+    </script>
+        <table id="zak" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">№</th>
-                <th scope="col">ФИО</th>
-                <th scope="col">Производство</th>
                 <th scope="col">Наименование контрагент</th>
                 <th scope="col">Наименование продукт</th>
                 <th scope="col">Количество</th>
@@ -22,8 +56,6 @@
         <?php foreach ($browesorder as $row) {?>
             <tr>
                 <th scope="row"><?=$row['ID_order']?></th>
-                <td><?=$row['fio']?></td>
-                <td><?=$row['name_p']?></td>
                 <td><?=$row['contractor']?></td>
                 <td><?=$row['name_product']?></td>
                 <td><?=$row['count']?></td>
@@ -53,7 +85,6 @@
     <input type="hidden" name="ID_order" value="<?=$row['ID_order']?>">
     <label for="validationDefault04" class="form-label">Статус</label>
     <select class="form-select" id="validationDefault04" name="storder" required value="<?=$row['status']?>">
-      <option value="Заказан">Заказан</option>
       <option value="Подготовен к доставку">Подготовен к доставку</option>
       <option value="Отправка">Отправка</option>
     </select>
