@@ -43,7 +43,31 @@
                     <img src="/assets/img/<?=$row['image']?>" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title"><?=$row['name_product']?></h5>
-                        <a href="<?=base_url('order/browse_product_zakaz')?>" class="btn btn-primary">Купить</a>
+                        
+                        <!-- Кнопка-триггер модального окна -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?=$row['ID_product']?>">
+                            Купить
+                        </button>
+
+                        <!-- Модальное окно -->
+                        <div class="modal fade" id="<?=$row['ID_product']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Заголовок модального окна</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                    <button type="button" class="btn btn-primary">Купить</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     </div>
                 </div>
