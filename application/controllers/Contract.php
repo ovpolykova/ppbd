@@ -68,9 +68,11 @@
         $date_c     = $this->input->post('date_c');
         $inn        = $this->input->post('inn');
         $kpp        = $this->input->post('kpp');
+        $login      = $this->input->post('login');
+        $password   = $this->input->post('password');
         $id         = $this->input->post('ID_contract');
         $this->load->model('contract_m');
-        $this->contract_m->upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $id);
+        $this->contract_m->upd_contract($contractor, $ID_type_c, $address_c, $date_c, $inn, $kpp, $login, $password, $id);
 
         redirect('contract/browse_contract_admin');
     }
