@@ -85,7 +85,8 @@
             $data['product'] = $this->price_m->sel_product($config['per_page'], $this->uri->segment(3));
         }
 
-        $data['group']   = $this->price_m->sel_group();
+        $data['group'] = $this->price_m->sel_group();
+        $data['price'] = $this->price_m->sel_price();
 
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
@@ -94,6 +95,35 @@
         $this->load->view('templates/navbar_contragent', $data);
         $this->load->view('pages/product_list', $data);
         $this->load->view('templates/footer');
+    }
+
+    //Мои заказы|Волобуев
+    public function my_order()
+    {
+        //Сессия
+		$data['session'] = $this->session->userdata('login_session');
+
+        $this->load->model('order_m');
+        $data['my_order'] = $this->order_m->sel_order_contractor($data['session']);
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar_contragent', $data);
+        $this->load->view('pages/my_order', $data);
+        $this->load->view('templates/footer');
+    }
+
+    //Добавление заказа|Волобуев
+    public function add_order()
+    {
+        $ID_contract = $this->input->post('ID_contract');
+        $ID_list     = $this->input->post('ID_list');
+        $count       = $this->input->post('count');
+        
+        $this->load->model('order_m');
+        $this->order_m->add_order($ID_contract, $ID_list, $count);
+        echo var_dump($this->db->last_query());
+        
+        redirect('main/my_order');
     }
 
     //Завершение сессии|Кузнецов

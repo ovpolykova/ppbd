@@ -6,7 +6,7 @@
         </a>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="<?=base_url('main/product')?>" class="nav-link px-2 link-secondary">Товары</a></li>
-            <li><a href="<?=base_url('order/browse_product_zakaz')?>" class="nav-link px-2 link-secondary">Мои заказы</a></li>
+            <li><a href="<?=base_url('main/my_order')?>" class="nav-link px-2 link-secondary">Мои заказы</a></li>
             
         </ul>
         <div class="col-md-3 text-end">

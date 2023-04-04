@@ -23,4 +23,23 @@ class Order_m extends CI_Model {
                 ->where('ID_order', $id)
                 ->update('order');
     }
+
+    //Добавить заказ|Волобуев
+    public function add_order($ID_contract, $ID_list, $count)
+    {
+        $sql = "INSERT INTO `order`(`ID_contract`, `ID_list`, `count`, `status`) VALUES ('$ID_contract','$ID_list','$count','Заказан')";
+        $this->db->query($sql);
+    }
+
+    //Выбрать заказ, определенный контрагент
+    public function sel_order_contractor($data)
+    {
+        $query = $this->db->select('*')
+                          ->where('order.ID_list = price_list.ID_list')
+                          ->where('price_list.ID_product = product.ID_product')
+                          ->where('price_list.ID_valuta = valuta.ID_valuta')
+                          ->where('ID_contract', $data['ID_contract'])
+                          ->get('order, price_list, product, valuta');
+        return $query->result_array();
+    }
 }
