@@ -55,6 +55,14 @@
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
                                         <input type="text" class="form-control" name="kpp" placeholder="КПП" required>
                                     </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="login" placeholder="Логин" required>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="password" placeholder="Пароль" required>
+                                    </div>
 
                                 </div>
                             </div>
@@ -159,6 +167,14 @@
                                     <div class="input-group mb-3">
                                         <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
                                         <input type="text" class="form-control" name="kpp" placeholder="КПП" required value="<?=$row['kpp']?>">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="login" placeholder="Логин" required value="<?=$row['login']?>">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-primary"><i class="bi bi-person-vcard text-white"></i></span>
+                                        <input type="text" class="form-control" name="password" placeholder="Пароль" required value="<?=$row['password']?>">
                                     </div>
 
                                     </div>

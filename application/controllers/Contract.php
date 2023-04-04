@@ -38,6 +38,8 @@
             $date_c     = $this->input->post('date_c');
             $inn        = $this->input->post('inn');
             $kpp        = $this->input->post('kpp');
+            $login      = $this->input->post('login');
+            $password   = $this->input->post('password');
 
             $data = array(
                 'contractor' => $contractor,
@@ -45,7 +47,9 @@
                 'address_c'  => $address_c,
                 'date_c'     => $date_c,
                 'inn'        => $inn,
-                'kpp'        => $kpp
+                'kpp'        => $kpp,
+                'login'      => $login,
+                'password'   => $password
             );
             
             $this->load->model('contract_m');
