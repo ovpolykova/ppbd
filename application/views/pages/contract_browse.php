@@ -3,7 +3,7 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
 <!-- Фильтры -->
-<form class="row gy-2 gx-3 align-items-center" action="" method="post">
+<form class="row gy-2 gx-3 align-items-center" action="<?base_url('contract/browse_contract')?>" method="post">
     <div class="col-sm-3">
     <select class="form-select" name="ID_contract">
         <?php foreach ($contragent as $row) {?>
