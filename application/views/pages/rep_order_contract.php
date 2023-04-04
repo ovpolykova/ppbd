@@ -28,6 +28,7 @@
                 </form>
             </div>
         </div>
+        <hr>
 
         <!-- Скрипт для пагинации -->
         <script>
@@ -60,5 +61,6 @@
                 <?php }?>
             </tbody>
         </table>
+        <hr>
     </div>
 </div>
