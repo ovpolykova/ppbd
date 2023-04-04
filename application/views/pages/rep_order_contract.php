@@ -41,7 +41,10 @@
                 <tr>
                     <th scope="col">№</th>
                     <th scope="col">Наименование контрагента</th>
+                    <th scope="col">Дата заказа</th>
+                    <th scope="col">Дата отправки</th>
                     <th scope="col">Общая сумма</th>
+                    <th scope="col">Статус</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,7 +52,10 @@
                 <tr>
                     <th scope="row"><?=$row['ID_order']?></th>
                     <td><?=$row['contractor']?></td>
+                    <td><?=$row['date_order']?></td>
+                    <td><?=$row['date_send']?></td>
                     <td><?=$row['SUM(price*count)']?></td>
+                    <td><?=$row['status']?></td>
                 </tr>
                 <?php }?>
             </tbody>
