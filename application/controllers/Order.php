@@ -93,10 +93,6 @@
         $this->load->view('pages/order_del_otch', $data);
         $this->load->view('templates/footer');
 	}
-<<<<<<< HEAD
-    
-=======
-
 
     public function upd_order_doc()
 	{
@@ -110,9 +106,4 @@
         redirect('order/rep_delivery');
 	}
 
-
-
-
-
->>>>>>> fb11debf36b86f256d6ae464f4a28cc0abec2598
 }
