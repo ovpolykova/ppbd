@@ -22,6 +22,7 @@
                 </div>
                 <div class="col-12" style="text-align: center; margin-top: 10px;">
                     <button type="submit" class="btn btn-primary">Найти</button>
+                    <a href="<?=base_url('report/browse_order_fall')?>" class="btn btn-danger">Очистить</a>
                 </div>
             </form>
         </div>
