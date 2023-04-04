@@ -2,6 +2,37 @@
     <div class="row">
         <div class=""></div>
         <div class="col-lg-12">
+       <h2>Фильтры:</h2>
+<form class="row g-3" method="post" action="">
+  <div class="col-md-3">
+    <label for="conts" class="form-label">по контрагенту</label>
+    <select id="conts"  name="ID_contract" class="form-select">
+   
+    <?php foreach ($cont as $row) {?>
+      <option value="<?=$row['ID_contract']?>"><?=$row['contractor']?></option>
+      <?php }?>
+
+
+    </select>
+  </div>
+
+
+
+
+  <div class="col-4" style="margin-top: 3%;">
+ 
+    <button type="submit" class="btn btn-primary" >Поиск</button>
+    <a href="<?=base_url('order/browes_order')?>" class="btn btn-danger">Очистить</a>
+  </div>
+</form>
+
+
+<br>
+<hr>
+
+
+
+
 <!-- Скрипт для пагинации -->
 <script>
         $(document).ready(function () {

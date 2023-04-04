@@ -7,12 +7,29 @@
         $data['session'] = $this->session->userdata('login_session');
 
         $this->load->model('order_m');
-        $data['browesorder'] = $this->order_m->sel_order();
+        if (!empty($_POST)) {
+            $data_filter = array(
+                'ID_contract' => $this->input->post('ID_contract'),
+
+            );
+            
+            $data['browesorder'] = $this->order_m->sel_zak_filter_ord($data_filter['ID_contract']);
+
+        } else {
+            $data['browesorder'] = $this->order_m->sel_order();
+        
+        }
+     
+        $data['cont'] = $this->order_m->sel_contact();
+
         
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_operator', $data);
         $this->load->view('pages/order_delivery', $data);
         $this->load->view('templates/footer');
+
+
+
 	}
 
     //Просмотр товары|Харламов
@@ -89,5 +106,9 @@
         
         redirect('order/rep_delivery');
 	}
+
+
+
+
 
 }

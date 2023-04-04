@@ -11,7 +11,7 @@ class Report_m extends CI_Model {
     {
         $sql = "SELECT `order`.ID_order, users.fio, contract.contractor, product.name_product, count,  date_order, date_send, status FROM users, contract, price_list, product, `order` 
             WHERE `order`.ID_order = users.ID_user AND `order`.ID_contract = contract.ID_contract
-            AND `order`.ID_list = price_list.ID_list AND price_list.ID_product = product.ID_product AND status = 'Подготовен к доставку'";
+            AND `order`.ID_list = price_list.ID_list AND price_list.ID_product = product.ID_product AND status = 'Подготовка к отправке'";
         $query = $this->db->query($sql);
         return $query->result_array(); 
         

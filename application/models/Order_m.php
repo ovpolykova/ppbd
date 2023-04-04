@@ -34,5 +34,34 @@ class Order_m extends CI_Model {
                 ->update('order');
     }
 
+
+      //Выбрать контрагент с фильтром|Харламов
+      public function sel_zak_filter_ord($data_filter)
+      {
+                $query = $this->db->select('*')
+                                ->from('`order`, `contract`, `price_list`, `product`')
+                                ->where('`order`.`ID_contract`=`contract`.`ID_contract`')
+                                ->where('`order`.`ID_list`=`price_list`.`ID_list`')
+                                ->where('`price_list`.`ID_product`=`product`.`ID_product`')
+                                ->where('order.ID_contract', $data_filter)
+                                ->order_by('contractor')
+                                ->get();
+        return $query->result_array();
+      }
+
+      //Выбрать контрагент с фильтром|Харламов
+      public function sel_contact()
+      {
+                $query = $this->db->get('contract');
+        return $query->result_array();
+      }
+
+
+  
+    
+
+   
+      
+
     
 }
