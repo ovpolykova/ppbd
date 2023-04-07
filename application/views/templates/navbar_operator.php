@@ -14,7 +14,7 @@
         </ul>
 
         <div class="col-md-3 text-end">
-        <a href="<?=base_url('main/exit')?>" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">ВЫЙТИ</button></a> 
+        <a href="<?=base_url('main/exit1')?>" class="nav-link px-2 link-dark"> <button type="button" class="btn btn-outline-primary me-2">ВЫЙТИ</button></a> 
         </div>
     </header>
 </div>

@@ -7,7 +7,7 @@
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');
 
-        $date1 = "2000-01-01";
+        $date1 = "0000-01-01";
         $date2 = "2100-01-01";
 
         if (!empty($this->input->post('date1'))) {
@@ -57,8 +57,8 @@
         $this->load->model('report_m');
         $this->load->model('report_m');
 
-        $date1 = "2000-01-01";
-        $date2 = "2100-01-01";
+        $date1 = "0000-01-01";
+        $date2 = "2300-01-01";
 
         if (!empty($this->input->post('date1'))) {
             $date1 = $this->input->post('date1');
@@ -68,7 +68,7 @@
             $date2 = $this->input->post('date2');
         }
 
-        $data['order_fall'] = $this->report_m->sel_rep_order_fall($date1, $date2);
+        $data['order_fall'] = $this->report_m->sel_rep_order_fall();
 
         //Сессия
 		$data['session'] = $this->session->userdata('login_session');

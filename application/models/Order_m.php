@@ -19,7 +19,7 @@ class Order_m extends CI_Model {
     public function sel_tovars()
     {
         $sql = "SELECT `order`.ID_order, users.fio, contract.contractor, product.name_product, count,  date_order, date_send, status FROM users, contract, price_list, product, `order` 
-        WHERE `order`.ID_order = users.ID_user AND `order`.ID_contract = contract.ID_contract AND status='Заказан'
+        WHERE `order`.ID_user = users.ID_user AND `order`.ID_contract = contract.ID_contract 
         AND `order`.ID_list = price_list.ID_list AND price_list.ID_product = product.ID_product";
         $query = $this->db->query($sql);
         return $query->result_array(); 
@@ -34,7 +34,6 @@ class Order_m extends CI_Model {
                 ->update('order');
     }
 
-<<<<<<< HEAD
     //Добавить заказ|Волобуев
     public function add_order($ID_contract, $ID_list, $count)
     {
@@ -53,7 +52,6 @@ class Order_m extends CI_Model {
                           ->get('order, price_list, product, valuta');
         return $query->result_array();
     }
-=======
 
       //Выбрать контрагент с фильтром|Харламов
       public function sel_zak_filter_ord($data_filter)
@@ -75,14 +73,4 @@ class Order_m extends CI_Model {
                 $query = $this->db->get('contract');
         return $query->result_array();
       }
-
-
-  
-    
-
-   
-      
-
-    
->>>>>>> fb11debf36b86f256d6ae464f4a28cc0abec2598
 }

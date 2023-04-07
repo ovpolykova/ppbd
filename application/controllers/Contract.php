@@ -16,8 +16,9 @@
         } else {
             $data['contract'] = $this->contract_m->sel_contract_zak();
         }
+        
         $data['contragent'] = $this->contract_m->sel_contragent();
-
+        
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_operator', $data);
         $this->load->view('pages/contract_browse', $data);

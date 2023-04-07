@@ -121,13 +121,12 @@
         
         $this->load->model('order_m');
         $this->order_m->add_order($ID_contract, $ID_list, $count);
-        echo var_dump($this->db->last_query());
         
         redirect('main/my_order');
     }
 
     //Завершение сессии|Кузнецов
-    public function exit()
+    public function exit1()
     {
 		$this->load->model('user_m');
 		$this->user_m->kill_session();

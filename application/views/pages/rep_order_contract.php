@@ -41,23 +41,17 @@
         <table id="contract" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th scope="col">№</th>
                     <th scope="col">Наименование контрагента</th>
-                    <th scope="col">Дата заказа</th>
-                    <th scope="col">Дата отправки</th>
                     <th scope="col">Общая сумма</th>
-                    <th scope="col">Статус</th>
+                    <th scope="col">Кол-во заказ</th>
                 </tr>
             </thead>
             <tbody>
             <?php foreach ($order as $row) {?>
                 <tr>
-                    <th scope="row"><?=$row['ID_order']?></th>
                     <td><?=$row['contractor']?></td>
-                    <td><?=$row['date_order']?></td>
-                    <td><?=$row['date_send']?></td>
                     <td><?=$row['SUM(price*count)']?></td>
-                    <td><?=$row['status']?></td>
+                    <td><?=$row['COUNT(ID_order)']?></td>
                 </tr>
                 <?php }?>
             </tbody>

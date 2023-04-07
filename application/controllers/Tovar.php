@@ -16,7 +16,11 @@
         } else {
             $data['tovars'] = $this->tovar_m->sel_tov();
         }
-        $data['tov'] = $this->tovar_m->sel_tov();
+        
+        
+        
+        $data['tova'] = $this->tovar_m->sel_tovar();
+   
 
         $this->load->view('templates/header');
         $this->load->view('templates/navbar_operator', $data);

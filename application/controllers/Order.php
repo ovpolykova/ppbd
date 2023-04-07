@@ -51,6 +51,7 @@
 	{ 
 
         $status = $this->input->post('storder');
+        $date_send = '';
         if(!empty($this->input->post('storder')=='Отправка'))
         {
             $date_send = date('y-m-d');
@@ -97,10 +98,11 @@
     public function upd_order_doc()
 	{
         $date_send = date('y-m-d');
+        $date_order = date('y-m-d');
         $status    = 'Отправка';
         $id        = $this->input->post('ID_order');
         $this->load->model('report_m');
-        $this->report_m->upd_order_status_doc($status, $date_send,  $id);
+        $this->report_m->upd_order_status_doc($status, $date_send, $date_order, $id);
         $data['otchter'] = $this->report_m->upd_order_status_doc($status, $date_send, $id);
         
         redirect('order/rep_delivery');

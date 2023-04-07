@@ -3,10 +3,10 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
 <!-- Фильтры -->
-<form class="row gy-2 gx-3 align-items-center" action="" method="post">
+<form class="row gy-2 gx-3 align-items-center" action="<?base_url('tovar/browse_tovar')?>" method="post">
     <div class="col-sm-3">
     <select class="form-select" name="ID_product">
-        <?php foreach ($tov as $row) {?>
+        <?php foreach ($tova as $row) {?>
       <option value="<?=$row['ID_product']?>"><?=$row['name_product']?></option>
       <?php }?>
     </select>
@@ -14,6 +14,7 @@
   
   <div class="col-auto">
     <button type="submit" class="btn btn-primary">Поиск</button>
+    <a href="<?=base_url('tovar/browse_tovar')?>" class="btn btn-danger">Очистить</a>
   </div>
 </form>
 <br>
